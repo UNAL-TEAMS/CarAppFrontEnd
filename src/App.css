@@ -5,32 +5,7 @@
 .App-logo {
   height: 8vmin;
 }
- /* background-image: url("https://www.tokkoro.com/picsup/2957180-car-interior-light-trails-night___mixed-wallpapers.jpg");
-}
 
-
-/*
-.App-header {
-  background-color: #282c34;
-  background-image: url("https://thewallpaper.co//wp-content/uploads/2016/02/tires-metallic-colors-hd-car-images-auto-wallpapers-speedy-motors-automobile-desktop-images-car-background-1920x1200.jpg");
-  height: 100vh;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-end;
-  font-size: calc(10px + 2vmin);
-  color: white;
-  
-}
-/*
-.App-link {
-  color: #0051ff;
-}
-*/
 .button {
   background-color: rgb(18, 9, 39); 
   margin-bottom: 0.25em;

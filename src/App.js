@@ -34,7 +34,7 @@ class App extends Component {
         break;
       case "password":
         formErrors.password =
-          value.length < 7 ? "minimo 7 carácteres" : "";
+          value.length < 6 ? "minimo 6 carácteres" : "";
         break;
       default:
         break;
