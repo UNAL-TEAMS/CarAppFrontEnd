@@ -113,7 +113,7 @@ input {
 
 
 
-input::placeholder {
+input:placeholder {
   font-size: 1.2em;
   font-weight: lighter;
   color: #999;
@@ -122,21 +122,21 @@ input::placeholder {
 
 
 .mensaje_error {
-  color: rgb(73, 9, 9);
+  color: rgb(185, 99, 99);
   font-size: 0.75em;
   display: relative;
 }
 
 
 .email,
-.password {
+.password,.nombre,.ident {
   display: flex;
   flex-direction: column;
   margin-bottom: 15px;
 }
 
 .email,
-.password {
+.password,.nombre, .ident {
   width: 100%;
 }
 

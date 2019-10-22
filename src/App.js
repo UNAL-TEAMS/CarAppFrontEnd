@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import logo from './logo2.svg';
 import "./App.css";
-
+import Registro from './Registro';
+import {HashRouter, Route, Switch, BrowserRouter} from 'react-router-dom';
+import {Link} from "react-router-dom";
 
 class App extends Component {
   constructor(props) {
@@ -11,45 +13,25 @@ class App extends Component {
       
       email: null,
       password: null,
-      formErrors: {
-        
-        email: "",
-        password: ""
-      }
+     
     };
   }
 
 
-  handleChange = e => {
-    e.preventDefault();
-    const { name, value } = e.target;
-    let formErrors = { ...this.state.formErrors };
+  
 
-    switch (name) {
-      
-      case "email":
-        formErrors.email = emailRegex.test(value)
-          ? ""
-          : "Dirección email inválida";
-        break;
-      case "password":
-        formErrors.password =
-          value.length < 6 ? "minimo 6 carácteres" : "";
-        break;
-      default:
-        break;
-    }
+  handleingresar = () =>  {
+    alert("Usuario no registrado");
+  }
 
-    this.setState({ formErrors, [name]: value }, () => console.log(this.state));
-
-  };
 
   render() {
-    const { formErrors } = this.state;
+   
     return (
+     
       
       <div className="label_login">
-
+       
         <div className="formulario">
             <h1>CarApp</h1>
 
@@ -58,40 +40,35 @@ class App extends Component {
             <div className="email">
               <label htmlFor="email">Email</label>
               <input
-                className={formErrors.email.length > 0 ? "error" : null}
+               
                 placeholder="Email"
                 type="email"
                 name="email"
                 noValidate
-                onChange={this.handleChange}
+               
 
               />
 
-              {formErrors.email.length > 0 && (
-                <span className="mensaje_error">{formErrors.email}</span>
-              )}
+             
             </div>
 
             <div className="password">
               <label htmlFor="password">Password</label>
               <input
-                className={formErrors.password.length > 0 ? "error" : null}
+               
                 placeholder="Password"
                 type="password"
                 name="password"
                 noValidate
-                onChange={this.handleChange}
+               
               />
-              {formErrors.password.length > 0 && (
-                <span className="mensaje_error">{formErrors.password}</span>
-              )}
+            
 
             </div>
             <div className="ingresar">
-              <button type="submit">Iniciar sesión</button>
-              
-              <a href="" class="NewAcount">Registrar una cuenta nueva</a>
-              
+              <button type="submit"onClick={this.handleingresar}>Iniciar sesión</button>
+                         
+              <a href="/Registro" class="NewAcount">Registrar una cuenta nueva</a>
             </div>
         
           </form>
@@ -103,9 +80,9 @@ class App extends Component {
               <a href="https://carappunal2019-2.000webhostapp.com/" class="button">Ver proyecto</a>
               
               <p></p>
+             
       </div>
-      
-
+     
     );
 
   }
@@ -113,10 +90,7 @@ class App extends Component {
 }
 
 
-
 export default App;
-
-
 
 const emailRegex = RegExp(
   /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
@@ -138,3 +112,27 @@ const formValid = ({ formErrors, ...rest }) => {
   return valid;
 
 };
+
+/*
+
+function Registro_o() {
+  
+     
+  return (
+ 
+    <div>
+
+      <p></p>
+            
+            <img src={logo} className="App-logo" alt="logo" />
+            <p> Página en desarrollo del proooooooyecto Car App</p>
+            <a href="https://carappunal2019-2.000webhostapp.com/" class="button">Ver proyecto</a>
+            
+            <p></p>
+
+    </div>
+  
+  );
+
+}
+*/
