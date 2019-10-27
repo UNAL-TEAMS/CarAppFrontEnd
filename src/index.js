@@ -11,10 +11,10 @@ import 'bootstrap/js/src/collapse';
 import 'bootstrap/css/font-awesome.min.css';*/
 import * as serviceWorker from './serviceWorker';
 
-import Registro  from './componentes/registro/Registro'; //sirveee
-//import HomeUser from './componentes/HomeUser/HomeUser';
+//import Registro  from './componentes/registro/Registro'; //sirveee
+import HomeUser from './componentes/HomeUser/HomeUser';
 
 
-ReactDOM.render(<Registro />, document.getElementById('root'));
+ReactDOM.render(<HomeUser />, document.getElementById('root'));
 
 serviceWorker.unregister();

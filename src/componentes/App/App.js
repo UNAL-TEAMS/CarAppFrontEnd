@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 /*import {Registro} from './../Registro/Registro';
-import {Login} from './../login/Login';
+
 import {HashRouter, Route, Switch, BrowserRouter,Redirect} from 'react-router-dom';*/
 import {HashRouter, Route, Switch, BrowserRouter,Redirect} from 'react-router-dom';
 
