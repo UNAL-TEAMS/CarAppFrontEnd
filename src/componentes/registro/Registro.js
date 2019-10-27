@@ -34,7 +34,7 @@ export default class Registro extends Component {
       <div className="label_login">
        
         <div className="formulario">
-            <h1>Registro</h1>
+            <h1>Registrarse</h1>
 
               <form onSubmit={this.handleSubmit} noValidate>
 
