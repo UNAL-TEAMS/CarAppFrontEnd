@@ -1,9 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-/*import { Registro } from "./componentes/registro/Registro.js";
-import Login  from './componentes/login/Login';
-import App from './componentes/App/App';
+/*
 /*import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/js/dist/collapse';
 
