@@ -26,7 +26,7 @@ export default class Login extends Component {
   onSubmit = () => {
     
 
-      return <Redirect to= "/Registro"/>
+      return <Redirect to= "/HomeUser"/>
      
   }
 
@@ -71,14 +71,12 @@ export default class Login extends Component {
 
             </div>
             <div className="ingresar">
-              <button type="submit"onClick={this.handleingresar}>Iniciar sesión</button>
-              <li id="newcaount">
-            <a href="/Registro">
-              <span id="" >Cregg</span>
-            </a>
-          </li>           
-              <a href="/Registro" class="NewAcount">Registrar una cuenta nueva</a>
-              <button onClick ={this.onSubmit}>treee></button>
+              
+              <a href="/HomeUser" class="loguser">Iniciar sesión</a>
+              
+
+              <a href="/Registro" class="user_reg">Registrar una cuenta nueva</a>
+              
             </div>
         
           </form>

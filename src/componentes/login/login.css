@@ -18,15 +18,34 @@
     font-size: 16px;
   }
   
-  .NewAcount {
+  .user_reg {
     background-color: rgb(58, 3, 3); 
-    border: none;
-    color: rgb(95, 80, 80);
+    border: 2px solid #fff;
+    color: rgb(250, 236, 236);
     padding: 15px 32px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 16px;
+    font-size: 18px;
+  }
+  .loguser {
+    background-color: rgb(13, 71, 28); 
+    border: 2px solid #fff;
+    border-bottom: white;
+    color: rgb(235, 227, 227);
+    
+    text-align: center;
+    text-decoration: none;
+    
+    font-size: 2px;
+
+    width: 100%;
+    margin-top: 1em;
+    padding: 8px 5px;
+    font-size: 1em;
+    font-weight: lighter;
+    letter-spacing: 1px;
+    margin-bottom: 0.55em;
   }
   
   .label_login {
