@@ -1,10 +1,6 @@
 import React, { Component } from "react";
-import { Button, Navbar, Nav, Form, FormControl } from 'react-bootstrap';
-//import Navbar from 'react-bootstrap/Navbar'
+
 import "./HomeUser.css";
-/*
-import {HashRouter, Router, Switch, BrowserRouter} from 'react-router-dom';
-import {Link} from "react-router-dom";*/
 
 export default class HomeUser extends Component {
   /*    
