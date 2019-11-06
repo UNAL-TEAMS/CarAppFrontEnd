@@ -11,10 +11,10 @@ export default class Registro extends Component {
 
     this.state = {
       
-      Nombre: null,
-      Correo: null,
-      Di: null,
-      password: null,
+      Nombre: "",
+      Correo: "",
+      Di: "",
+      password: "",
     };
   }
 
