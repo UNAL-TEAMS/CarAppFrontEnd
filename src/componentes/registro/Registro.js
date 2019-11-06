@@ -22,7 +22,22 @@ export default class Registro extends Component {
   
 
   handleingresar = () =>  {
-    alert("Usuario registrado");
+    var xhr = XMLHttpRequest();
+    xhr.addEventListener("readyStateChange", funtion =>{
+      console.log(this);
+      alert("Usuario registrado");
+    });
+
+    var info = {};
+    info.name = this.state.Nombre;
+    info.email = this.state.Correo
+    info.identification = this.state.Di;
+    info.password = this.state.password;
+
+    xhr.open("PUT","https://carapp-unal-2.herokuapp.com/user/create_user");
+    xhr.setRequestHeader("content-type","application/json;charset=UTF-8");
+    xhr.send(JSON.stringify(info));
+
   }
 
 
@@ -47,6 +62,7 @@ export default class Registro extends Component {
                 type="nombre"
                 name="nombre"
                 noValidate
+                value={this.state.Nombre}
                
 
               />
@@ -63,6 +79,7 @@ export default class Registro extends Component {
                 type="email"
                 name="email"
                 noValidate
+                value={this.state.Correo}
                
               />
 
@@ -76,6 +93,7 @@ export default class Registro extends Component {
                 type="ident"
                 name="ident"
                 noValidate
+                value={this.state.Di}
                
               />
 
@@ -89,6 +107,7 @@ export default class Registro extends Component {
                 type="password"
                 name="password"
                 noValidate
+                value={this.state.password}
                
               />
               </div>
