@@ -98,7 +98,7 @@ export default class Registro extends Component {
               
 
             <div className="email">
-              <label >Email</label>
+              <label >Emaaaail</label>
               <input
                
                 placeholder="Email"
