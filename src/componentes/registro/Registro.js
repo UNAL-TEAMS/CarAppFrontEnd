@@ -21,10 +21,15 @@ export default class Registro extends Component {
 
   }
 
-
+  hanbleChange(event){
+    this.state({
+      [event.target.name]:event.target.value
+    })
+  console.log(this.state.Nombre);
+  }
   
 
-  handleingresar = () =>  {
+  handleingresar = (event) =>  {
 
     const{
       Nombre,
@@ -46,15 +51,19 @@ export default class Registro extends Component {
     )
     .then(response=> {
       console.log("Registradooo",response);
-      window.location.href='/Login';
+      window.location.href='/';
 
-    })
+    });
+    event.preventDefault();
+  
+ /*   
     var xhr = XMLHttpRequest();
     xhr.addEventListener("readyStateChange", funtion =>{
       console.log(this);
       alert("Usuario registrado");
     });
-/*
+    event.preventDefault();
+
     var info = {};
     info.name = this.state.Nombre;
     info.email = this.state.Correo;
@@ -86,7 +95,7 @@ export default class Registro extends Component {
               <input type = "text"
                
                 placeholder="Nombre y apellllidos"
-                type="nombre"
+               
                 name="nombre"
                 value={this.state.Nombre}
                
@@ -99,10 +108,10 @@ export default class Registro extends Component {
 
             <div className="email">
               <label >Emaaaail</label>
-              <input
+              <input type ="text"
                
                 placeholder="Email"
-                type="email"
+                
                 name="email"
               
                 value={this.state.Correo}
@@ -113,10 +122,10 @@ export default class Registro extends Component {
 
              <div className="ident">
               <label >Documento de identidad</label>
-              <input
+              <input type = "text"
                
                 placeholder="Documento de identidad"
-                type="ident"
+               
                 name="ident"
                 
                 value={this.state.Di}
@@ -127,10 +136,10 @@ export default class Registro extends Component {
 
             <div className="password">
               <label >Contraseña</label>
-              <input
+              <input type = "text"
                
                 placeholder="Contraseña"
-                type="password"
+                
                 name="password"
                 
                 value={this.state.password}

@@ -22,7 +22,7 @@ state= {
     <div>
     
         <Switch>
-          <Route exact path='/Login' render= {()=>(
+          <Route exact path='/' render= {()=>(
             <Login litlePanel= {this.state.litlePanel[1]} 
             />
             )} />
