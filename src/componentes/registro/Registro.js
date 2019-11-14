@@ -78,11 +78,11 @@ export default class Registro extends Component {
         <div className="formulario">
             <h1>Registrarse</h1>
 
-              <form onSubmit={this.handleSubmit} noValidate>
+              <form onSubmit={this.handleingresar}>
 
 
               <div className="nombre">
-              <label >Nombre y apellidos</label>
+              <label >Nombre y apellllidos</label>
               <input type = "text"
                
                 placeholder="Nombre y apellidos"
