@@ -1,6 +1,10 @@
 import React, { Component } from "react";
-
+import 'bootstrap/dist/css/bootstrap.min.css';
 import "./HomeUser.css";
+import InfoUser from './../InfoUser/InfoUser';
+import InfoCar from './../InfoCar/InfoCar';
+
+import {Grid, Row, ListGroup, Button, Tab, Col} from 'react-bootstrap'; 
 
 export default class HomeUser extends Component {
   /*    
@@ -25,48 +29,59 @@ export default class HomeUser extends Component {
 
       <div className="label_home">
 
-
-
-       
-        <div className="barra">
-            
-              <form onSubmit={this.handleSubmit} noValidate>
-
-
-              <div className="regauto">
-              <button type="submit"onClick={this.handleingresar}>Registrar automovil</button>
-              </div>
-
-              
-
-            <div className="miauto">
-            <button type="submit"onClick={this.handleingresar}>Mis automóviles</button>
-             </div>
-
-             <div className="estadisticas">
-             <button type="submit"onClick={this.handleingresar}>Estadísticas</button>
-             
-             </div>
-
-            <div className="alertas">
-            <button type="submit"onClick={this.handleingresar}>Alertas</button>
-              </div>
-          
-              <div className="proveedores">
-            <button type="submit"onClick={this.handleingresar}><p class="centrado">Proveedores</p></button>
-              </div>
-            
-           
-              
-            
         
-          </form>
-       
-        </div>
-      
-             
-      </div>
+
+<Tab.Container id="list-group-tabs-example" defaultActiveKey="#Perfil">
+  <ul class ="list-group">
+  <Row>
+    <Col sm={4}>
+           <ListGroup>
+        <ListGroup.Item action href="#Perfil">
+          Mi perfil
+        </ListGroup.Item>
+        <ListGroup.Item action href="#Carros" variant="dark">
+          Mi(s) carro(s)
+        </ListGroup.Item>
+        <ListGroup.Item action href="#Alertas" variant="warning">
+          Alertas
+        </ListGroup.Item>
+        <ListGroup.Item action href="#Proveedores" variant="danger">
+          Proveedores
+        </ListGroup.Item>
+        
+      </ListGroup>
      
+    </Col>
+
+    <Col sm={8}>
+      <Tab.Content>
+        <Tab.Pane eventKey="#Perfil">
+          <InfoUser/>
+        </Tab.Pane>
+        <Tab.Pane eventKey="#Carros">
+          <InfoCar/>
+        </Tab.Pane>
+        <Tab.Pane eventKey="#Alertas">
+          <div>uuuuuuu</div>
+        </Tab.Pane>
+        <Tab.Pane eventKey="#Proveedores">
+          <div>uuuuuuu</div>
+        </Tab.Pane>
+      </Tab.Content>
+    </Col>
+
+  </Row>
+  </ul>
+</Tab.Container>
+
+</div>
+     /*
+
+    <Button className="botones" action href ="#Proveedores" variant="outline-dark">
+      <h1>
+      Dark
+      </h1>
+      </Button>*/
     );
 
   }

@@ -18,11 +18,11 @@ export default class Registro extends Component {
       password: "",
     }
     this.handleingresar = this.handleingresar.bind(this);
-
+    this.handleChange = this.handleChange.bind(this);
   }
 
-  hanbleChange(event){
-    this.state({
+  handleChange(event){
+    this.setState({
       [event.target.name]:event.target.value
     })
   console.log(this.state.Nombre);
@@ -41,12 +41,12 @@ export default class Registro extends Component {
 
     axios.post("https://carapp-unal-2.herokuapp.com/user/create_user", 
     {
-      user: {
+      
         name:Nombre,
         email:Correo,
         identification:Di,
         password:password 
-      }
+      
     }
     )
     .then(response=> {
@@ -98,6 +98,7 @@ export default class Registro extends Component {
                
                 name="nombre"
                 value={this.state.Nombre}
+                onChange={this.handleChange}
                
 
               />
@@ -115,7 +116,7 @@ export default class Registro extends Component {
                 name="email"
               
                 value={this.state.Correo}
-               
+               onChange={this.handleChange}
               />
 
              </div>
@@ -129,7 +130,7 @@ export default class Registro extends Component {
                 name="ident"
                 
                 value={this.state.Di}
-               
+               onChange={this.handleChange}
               />
 
              </div>
@@ -143,7 +144,7 @@ export default class Registro extends Component {
                 name="password"
                 
                 value={this.state.password}
-               
+               onChange={this.handleChange}
               />
               </div>
           
