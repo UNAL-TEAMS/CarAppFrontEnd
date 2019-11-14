@@ -85,7 +85,7 @@ export default class Registro extends Component {
               <label >Nombre y apellllidos</label>
               <input type = "text"
                
-                placeholder="Nombre y apellidos"
+                placeholder="Nombre y apellllidos"
                 type="nombre"
                 name="nombre"
                 value={this.state.Nombre}
