@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./Registro.css";
+import axios from "axios";
 /*
 import {HashRouter, Router, Switch, BrowserRouter} from 'react-router-dom';
 import {Link} from "react-router-dom";*/
@@ -15,29 +16,55 @@ export default class Registro extends Component {
       Correo: "",
       Di: "",
       password: "",
-    };
+    }
+    this.handleingresar = this.handleSubmit.bind(this);
+
   }
 
 
   
 
   handleingresar = () =>  {
+
+    const{
+      Nombre,
+      Correo,
+      Di,
+      password,
+
+    }=this.state;
+
+    axios.post("https://carapp-unal-2.herokuapp.com/user/create_user", 
+    {
+      user: {
+        name=Nombre,
+        email=Correo,
+        identification=Di,
+        password=password 
+      }
+    }
+    )
+    .then(response=> {
+      console.log("Registradooo",response);
+      window.location.href='/Login';
+
+    })
     var xhr = XMLHttpRequest();
     xhr.addEventListener("readyStateChange", funtion =>{
       console.log(this);
       alert("Usuario registrado");
     });
-
+/*
     var info = {};
     info.name = this.state.Nombre;
-    info.email = this.state.Correo
+    info.email = this.state.Correo;
     info.identification = this.state.Di;
     info.password = this.state.password;
 
     xhr.open("PUT","https://carapp-unal-2.herokuapp.com/user/create_user");
     xhr.setRequestHeader("content-type","application/json;charset=UTF-8");
     xhr.send(JSON.stringify(info));
-
+*/
   }
 
 
@@ -56,12 +83,11 @@ export default class Registro extends Component {
 
               <div className="nombre">
               <label >Nombre y apellidos</label>
-              <input
+              <input type = "text"
                
                 placeholder="Nombre y apellidos"
                 type="nombre"
                 name="nombre"
-                noValidate
                 value={this.state.Nombre}
                
 
@@ -78,7 +104,7 @@ export default class Registro extends Component {
                 placeholder="Email"
                 type="email"
                 name="email"
-                noValidate
+              
                 value={this.state.Correo}
                
               />
@@ -92,7 +118,7 @@ export default class Registro extends Component {
                 placeholder="Documento de identidad"
                 type="ident"
                 name="ident"
-                noValidate
+                
                 value={this.state.Di}
                
               />
@@ -106,7 +132,7 @@ export default class Registro extends Component {
                 placeholder="Contraseña"
                 type="password"
                 name="password"
-                noValidate
+                
                 value={this.state.password}
                
               />
