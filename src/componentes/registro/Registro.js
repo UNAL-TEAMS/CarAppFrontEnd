@@ -17,7 +17,7 @@ export default class Registro extends Component {
       Di: "",
       password: "",
     }
-    this.handleingresar = this.handleSubmit.bind(this);
+    this.handleingresar = this.handleingresar.bind(this);
 
   }
 
@@ -37,10 +37,10 @@ export default class Registro extends Component {
     axios.post("https://carapp-unal-2.herokuapp.com/user/create_user", 
     {
       user: {
-        name=Nombre,
-        email=Correo,
-        identification=Di,
-        password=password 
+        name:Nombre,
+        email:Correo,
+        identification:Di,
+        password:password 
       }
     }
     )
