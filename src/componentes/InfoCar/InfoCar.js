@@ -51,7 +51,7 @@ export default class InfoCar extends Component {
             </div>
 
             <div className="password">
-              <label htmlFor="password">Kilometraje</label>
+              <label htmlFor="kil">Kilometraje</label>
               <label>""</label>
             
             </div>
