@@ -65,7 +65,7 @@ export default class Registro extends Component {
 
 
               <div className="nombre">
-              <label >Nombre y apellllidos</label>
+              <label >Nombre y apellidos</label>
               <input type = "text"
                
                 placeholder="Nombre y apellllidos"
