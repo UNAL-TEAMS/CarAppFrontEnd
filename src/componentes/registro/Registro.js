@@ -25,55 +25,29 @@ export default class Registro extends Component {
     this.setState({
       [event.target.name]:event.target.value
     })
-  console.log(this.state.Nombre);
+    //this.state[event.target.name] = event.target.value;
   }
   
 
-  handleingresar = (event) =>  {
+  handleingresar(event) {
 
-    const{
-      Nombre,
-      Correo,
-      Di,
-      password,
+    console.log(this.state);
 
-    }=this.state;
-
-    axios.post("https://carapp-unal-2.herokuapp.com/user/create_user", 
+    axios.put('https://carapp-unal-2.herokuapp.com/user/create_user', 
     {
-      
-        name:Nombre,
-        email:Correo,
-        identification:Di,
-        password:password 
-      
+        name:this.state.Nombre,
+        email:this.state.Correo,
+        identification:this.state.Di,
+        password:this.state.password    
     }
     )
-    .then(response=> {
-      console.log("Registradooo",response);
-      window.location.href='/';
+    .then(response => {
+      console.log(response);
 
-    });
-    event.preventDefault();
+    }).catch(err => {console.log(err.response);});
   
- /*   
-    var xhr = XMLHttpRequest();
-    xhr.addEventListener("readyStateChange", funtion =>{
-      console.log(this);
-      alert("Usuario registrado");
-    });
     event.preventDefault();
 
-    var info = {};
-    info.name = this.state.Nombre;
-    info.email = this.state.Correo;
-    info.identification = this.state.Di;
-    info.password = this.state.password;
-
-    xhr.open("PUT","https://carapp-unal-2.herokuapp.com/user/create_user");
-    xhr.setRequestHeader("content-type","application/json;charset=UTF-8");
-    xhr.send(JSON.stringify(info));
-*/
   }
 
 
@@ -96,7 +70,7 @@ export default class Registro extends Component {
                
                 placeholder="Nombre y apellllidos"
                
-                name="nombre"
+                name="Nombre"
                 value={this.state.Nombre}
                 onChange={this.handleChange}
                
@@ -113,7 +87,7 @@ export default class Registro extends Component {
                
                 placeholder="Email"
                 
-                name="email"
+                name="Correo"
               
                 value={this.state.Correo}
                onChange={this.handleChange}
@@ -127,7 +101,7 @@ export default class Registro extends Component {
                
                 placeholder="Documento de identidad"
                
-                name="ident"
+                name="Di"
                 
                 value={this.state.Di}
                onChange={this.handleChange}
@@ -137,7 +111,7 @@ export default class Registro extends Component {
 
             <div className="password">
               <label >Contraseña</label>
-              <input type = "text"
+              <input type = "password"
                
                 placeholder="Contraseña"
                 
@@ -147,15 +121,16 @@ export default class Registro extends Component {
                onChange={this.handleChange}
               />
               </div>
-          
-            
-            <div className="ingresar">
-              <button type="submit"onClick={this.handleingresar}>Registrarse</button>
+              <div className="ingresar">
+              <button type="submit"  >Registrarse</button>
               
             </div>
+            
         
           </form>
        
+       
+          
         </div>
       
              
