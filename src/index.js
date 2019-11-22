@@ -1,20 +1,24 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-/*
-/*import 'bootstrap/dist/css/bootstrap.min.css';
-import 'bootstrap/js/dist/collapse';
+import React from "react";
+import ReactDOM from "react-dom";
+import { createBrowserHistory } from "history";
+import { Router, Route, Switch, Redirect } from "react-router-dom";
 
-import 'bootstrap/js/src/collapse';
-import 'bootstrap/css/font-awesome.min.css';*/
-import * as serviceWorker from './serviceWorker';
-/*
-import Registro  from './componentes/registro/Registro'; //sirveee
-import HomeUser from './componentes/HomeUser/HomeUser';*/
-import App from './componentes/App/App';
+import AdminLayout from "layouts/Admin/Admin.jsx";
+import RTLLayout from "layouts/RTL/RTL.jsx";
 
+import "assets/scss/black-dashboard-react.scss";
+import "assets/demo/demo.css";
+import "assets/css/nucleo-icons.css";
 
+const hist = createBrowserHistory();
 
-ReactDOM.render(< App />, document.getElementById('root'));
-
-serviceWorker.unregister();
+ReactDOM.render(
+  <Router history={hist}>
+    <Switch>
+      <Route path="/admin" render={props => <AdminLayout {...props} />} />
+      <Route path="/rtl" render={props => <RTLLayout {...props} />} />
+      <Redirect from="/" to="/admin/dashboard" />
+    </Switch>
+  </Router>,
+  document.getElementById("root")
+);
