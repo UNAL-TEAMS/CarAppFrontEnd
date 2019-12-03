@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import logo from './logo.svg';
 import "./login.css";
-//import {Redirect} from 'react-router-dom';
 import axios from "axios";
 
 
@@ -30,7 +29,7 @@ export default class Login extends Component {
       this.setState({
         [event.target.name]:event.target.value
       })
-      //this.state[event.target.name] = event.target.value;
+   
     }
    
     handleingresar(event) {
@@ -55,14 +54,7 @@ export default class Login extends Component {
 
 
 
-  
 
-//  onSubmit = () => {
-    
-
-  //    return <Redirect to= "/HomeUser"/>
-     
-  //}
 
   render() {
    
@@ -110,7 +102,7 @@ export default class Login extends Component {
             <div className="ingresar">
               
              
-              <button type="submit"  >Iniciar ssesión</button>
+              <button type="submit"  >Iniciar sesión</button>
 
               <a href="/Registro" class="user_reg">Registrar una cuenta nueva</a>
               
@@ -134,26 +126,5 @@ export default class Login extends Component {
 
 }
 
-
-// <a href="/HomeUser" class="loguser">Iniciar sesión</a>
-
-const emailRegex = RegExp(
-  /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
-);
-
-
-
-const formValid = ({ formErrors, ...rest }) => {
-  let valid = true;
-
-  Object.values(formErrors).forEach(val => {
-    val.length > 0 && (valid = false);
-  });
-
-
-  Object.values(rest).forEach(val => {
-    val === null && (valid = false);
-  });
-  return valid;
 
 };
