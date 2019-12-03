@@ -1,7 +1,12 @@
-import React, { Component } from "react";
+import React, { Component, useState } from "react";
 import logo from './../login/logo.svg';
 import "./InfoCar.css";
 //import {Redirect} from 'react-router-dom';
+import {Grid, Row, Modal, Button, Tab, Col} from 'react-bootstrap'; 
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+
+
 
 
 export default class InfoCar extends Component {
@@ -9,6 +14,7 @@ export default class InfoCar extends Component {
     super(props);
 
   }
+
 
   render() {
    
@@ -56,14 +62,15 @@ export default class InfoCar extends Component {
             
             </div>
 
-            <a href="" class="user_reg">Modificar</a>
+            <a href="" class="modcar">Modificar</a>
+
            
+            <Button variant="primary" onClick={Example}>
+            Registrar nuevo vehículo
+            </Button>
 
-
-
-        
-     
-             
+       
+            
       </div>
      
     );
@@ -71,3 +78,40 @@ export default class InfoCar extends Component {
   }
 
 }
+
+
+//<Button href="#">Link</Button>
+
+
+function Example() {
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
+
+  return (
+    <>
+      <Button variant="primary" onClick={handleShow}>
+        Launch demo modal
+      </Button>
+
+      <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>Modal heading</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose}>
+            Close
+          </Button>
+          <Button variant="primary" onClick={handleClose}>
+            Save Changes
+          </Button>
+        </Modal.Footer>
+      </Modal>
+    </>
+  );
+}
+
+//render(<Example />);

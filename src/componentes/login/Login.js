@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import logo from './logo.svg';
 import "./login.css";
-import {Redirect} from 'react-router-dom';
+//import {Redirect} from 'react-router-dom';
+import axios from "axios";
 
 
 export default class Login extends Component {
@@ -10,25 +11,58 @@ export default class Login extends Component {
 
     this.state = {
       
-      email: null,
-      password: null,
+      email: "",
+      password: "",
      
-    };
+    }
+    this.handleingresar = this.handleingresar.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
 
 
   
 
-  handleingresar = () =>  {
-    alert("Usuario no registrado");
-  }
+  //handleingresar = () =>  {
+    //alert("Usuario no registrado");
 
-  onSubmit = () => {
+
+    handleChange(event){
+      this.setState({
+        [event.target.name]:event.target.value
+      })
+      //this.state[event.target.name] = event.target.value;
+    }
+   
+    handleingresar(event) {
+  
+      console.log(this.state);
+  
+      axios.post('https://carapp-unal-2.herokuapp.com/user/log_in', 
+      {
+          name:this.state.email,
+          email:this.state.password,
+             
+      }
+      )
+      .then(response => {
+        console.log(response);
+  
+      }).catch(err => {console.log(err.response);});
+    
+      event.preventDefault();
+  
+    }
+
+
+
+  
+
+//  onSubmit = () => {
     
 
-      return <Redirect to= "/HomeUser"/>
+  //    return <Redirect to= "/HomeUser"/>
      
-  }
+  //}
 
   render() {
    
@@ -40,40 +74,43 @@ export default class Login extends Component {
         <div className="formulario">
           <h1>Bienvenido a CarApp</h1>
 
-              <form onSubmit={this.handleSubmit} noValidate>
+              <form onSubmit={this.handleingresar} >
            
             <div className="email">
-              <label htmlFor="email">Email</label>
+              <label >Email</label>
               <input
                
                 placeholder="Email"
                 type="email"
                 name="email"
-                noValidate
-               
+                
 
+                value={this.state.email}
+                onChange={this.handleChange}
+                 
               />
 
              
             </div>
 
             <div className="password">
-              <label htmlFor="password">Password</label>
+              <label >Password</label>
               <input
                
                 placeholder="Password"
                 type="password"
                 name="password"
-                noValidate
-               
+                value={this.state.password}
+                onChange={this.handleChange}
+                 
               />
             
 
             </div>
             <div className="ingresar">
               
-              <a href="/HomeUser" class="loguser">Iniciar sesión</a>
-              
+             
+              <button type="submit"  >Iniciar ssesión</button>
 
               <a href="/Registro" class="user_reg">Registrar una cuenta nueva</a>
               
@@ -97,6 +134,8 @@ export default class Login extends Component {
 
 }
 
+
+// <a href="/HomeUser" class="loguser">Iniciar sesión</a>
 
 const emailRegex = RegExp(
   /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/

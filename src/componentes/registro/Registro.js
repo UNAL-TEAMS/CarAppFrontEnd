@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./Registro.css";
 import axios from "axios";
+import {Redirect} from 'react-router-dom';
 /*
 import {HashRouter, Router, Switch, BrowserRouter} from 'react-router-dom';
 import {Link} from "react-router-dom";*/
@@ -48,7 +49,8 @@ export default class Registro extends Component {
   
     event.preventDefault();
 
-  }
+
+    }
 
 
   render() {
@@ -122,7 +124,7 @@ export default class Registro extends Component {
               />
               </div>
               <div className="ingresar">
-              <button type="submit"  >Registrarse</button>
+              <button  type="submit" >Regiiistrarse</button>
               
             </div>
             
