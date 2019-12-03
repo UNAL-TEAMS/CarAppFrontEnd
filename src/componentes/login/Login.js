@@ -38,13 +38,14 @@ export default class Login extends Component {
   
       axios.post('https://carapp-unal-2.herokuapp.com/user/log_in', 
       {
-          name:this.state.email,
-          email:this.state.password,
+          email:this.state.email,
+          password:this.state.password,
              
       }
       )
       .then(response => {
         console.log(response);
+        alert(response.statusText);
   
       }).catch(err => {console.log(err.response);});
     
@@ -124,7 +125,7 @@ export default class Login extends Component {
 
   }
 
-}
+
 
 
 };
