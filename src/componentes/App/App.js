@@ -5,7 +5,9 @@ import {HashRouter, Route, Switch, BrowserRouter,Redirect} from 'react-router-do
 import {HashRouter, Route, Switch, BrowserRouter,Redirect} from 'react-router-dom';
 import Login from './../login/Login';
 import Registro from './../registro/Registro';
+import RegisterCar from './../registerCar/RegisterCar';
 import HomeUser from './../HomeUser/HomeUser';
+
 
 
 class App extends Component {
@@ -33,6 +35,11 @@ state= {
 
           <Route exact path='/HomeUser' render= {()=>(
             <HomeUser litlePanel= {this.state.litlePanel[3]} 
+            />
+            )} />
+
+            <Route exact path='/RegisterCar' render= {()=>(
+            <RegisterCar litlePanel= {this.state.litlePanel[4]} 
             />
             )} />
 

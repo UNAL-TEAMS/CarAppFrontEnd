@@ -1,11 +1,11 @@
 import React, { Component, useState } from "react";
-import logo from './../login/logo.svg';
+
 import "./InfoCar.css";
 //import {Redirect} from 'react-router-dom';
-import {Grid, Row, Modal, Button, Tab, Col} from 'react-bootstrap'; 
+//import {Grid, Row, Form, Button, Tab, Col} from 'react-bootstrap'; 
 import 'bootstrap/dist/css/bootstrap.min.css';
-
-
+import RegisterCar from "../registerCar/RegisterCar";
+//import ReactDOM from 'react-dom';
 
 
 
@@ -15,6 +15,9 @@ export default class InfoCar extends Component {
 
   }
 
+ 
+  
+  
 
   render() {
    
@@ -64,13 +67,9 @@ export default class InfoCar extends Component {
 
             <a href="" class="modcar">Modificar</a>
 
-           
-            <Button variant="primary" onClick={Example}>
-            Registrar nuevo vehículo
-            </Button>
+            <a href="/RegisterCar" class="modcar" >Registrar vehiculo</a>
+          
 
-       
-            
       </div>
      
     );
@@ -82,7 +81,7 @@ export default class InfoCar extends Component {
 
 //<Button href="#">Link</Button>
 
-
+/*
 function Example() {
   const [show, setShow] = useState(false);
 
@@ -114,4 +113,4 @@ function Example() {
   );
 }
 
-//render(<Example />);
+//render(<Example />);*/
