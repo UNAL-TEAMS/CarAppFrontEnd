@@ -7,11 +7,11 @@ import Login from './../login/Login';
 import Registro from './../registro/Registro';
 import HomeUser from './../HomeUser/HomeUser';
 
-{}
+
 class App extends Component {
 
 state= {
-  litlePanel:["as","bg","cd"]
+  litlePanel:[]
 }
 
   render() {

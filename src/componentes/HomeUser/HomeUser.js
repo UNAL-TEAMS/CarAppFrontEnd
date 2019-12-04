@@ -4,7 +4,7 @@ import "./HomeUser.css";
 import InfoUser from './../InfoUser/InfoUser';
 import InfoCar from './../InfoCar/InfoCar';
 
-import {Grid, Row, ListGroup, Button, Tab, Col} from 'react-bootstrap'; 
+import {Dropdown, Row, ListGroup, Button, Tab, Col} from 'react-bootstrap'; 
 
 export default class HomeUser extends Component {
   /*    
@@ -25,10 +25,19 @@ export default class HomeUser extends Component {
    
     return (
         
-       
+   
 
       <div className="label_home">
+<Dropdown>
+  <Dropdown.Toggle variant="success" id="dropdown-basic">
+    Usuario
+  </Dropdown.Toggle>
 
+  <Dropdown.Menu>
+    <Dropdown.Item href="#/action-1">Cerrar Sesión</Dropdown.Item>
+ 
+  </Dropdown.Menu>
+</Dropdown>    
         
 
 <Tab.Container id="list-group-tabs-example" defaultActiveKey="#Perfil">
