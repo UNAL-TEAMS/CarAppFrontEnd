@@ -2,7 +2,8 @@ import React, { Component } from "react";
 import logo from './logo.svg';
 import "./login.css";
 import axios from "axios";
-
+import HomeUser from './../HomeUser/HomeUser';
+import ReactDOM from 'react-dom';
 
 export default class Login extends Component {
   constructor(props) {
@@ -38,21 +39,31 @@ export default class Login extends Component {
   
       axios.post('https://carapp-unal-2.herokuapp.com/user/log_in', 
       {
-          name:this.state.email,
-          email:this.state.password,
+          email:this.state.email,
+          password:this.state.password,
              
       }
       )
       .then(response => {
         console.log(response);
+        if (response.status = 200){
+
+          ReactDOM.render(< HomeUser />, document.getElementById('root'));
+        }
+       
   
-      }).catch(err => {console.log(err.response);});
+      }).catch(err => {alert("Usuario o contraseña no válidos")});
     
       event.preventDefault();
+
+      const token= axios.log_in_token;
+      const refreshtoken= axios.refresh_token;
+
+      
   
     }
 
-
+  
 
 
 
@@ -124,7 +135,7 @@ export default class Login extends Component {
 
   }
 
-}
+
 
 
 };

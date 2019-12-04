@@ -23,21 +23,22 @@ export default class InfoUser extends Component {
            
             <div className="email">
               <label htmlFor="email">Nombre</label>
-            
+              <label>"Andrea"</label>
             </div>
 
             <div className="password">
               <label htmlFor="password">Correo electrónico</label>
-            
+              <label>"andrea@perez"</label>
             </div>
 
             <div className="password">
               <label htmlFor="password">Número de identificación</label>
-            
+              <label>"1030758986"</label>
             </div>
 
             <div className="password">
               <label htmlFor="password">Avatar</label>
+              <img src={"https://imagenes.diario16.com/wp-content/uploads/2017/08/Africa-Couriel.jpg"} width="280" height="300" />
             
             </div>
 
