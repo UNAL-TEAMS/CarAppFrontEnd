@@ -29,36 +29,36 @@ export default class InfoCar extends Component {
            
             <div className="email">
               <label htmlFor="email">Marca</label>
-              <label>""</label>
+              <label>"FORD"</label>
             
             </div>
 
             <div className="password">
               <label htmlFor="password">Referencia</label>
-              <label>""</label>
+              <label>"FOCUS"</label>
             
             </div>
 
             <div className="password">
               <label htmlFor="password">Modelo</label>
-              <label>""</label>
+              <label>"2016"</label>
             
             </div>
 
             <div className="password">
               <label htmlFor="password">Placa</label>
-              <label>""</label>
+              <label>"CYU 879"</label>
             
             </div>
 
             <div className="password">
               <label htmlFor="password">Foto</label>
-              <img src={logo} className="App-logo" alt="logo" />
+              <img src={"https://images.netdirector.co.uk/gforces-auto/image/upload/q_auto,c_crop,f_auto,fl_lossy,x_631,y_0,w_809,h_809/w_256,h_256,c_fill/auto-client/f90ce7f6bae2445cbe2ab1dee4e27ffd/ford_focus_eu_3_foc_m_l_42280_16x9_2160x1215.jpg.renditions.extra_large.jpeg"} width="300" height="300" />
             </div>
 
             <div className="password">
               <label htmlFor="kil">Kilometraje</label>
-              <label>""</label>
+              <label>"58005"</label>
             
             </div>
 

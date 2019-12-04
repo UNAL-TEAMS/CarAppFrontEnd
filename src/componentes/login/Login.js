@@ -2,7 +2,8 @@ import React, { Component } from "react";
 import logo from './logo.svg';
 import "./login.css";
 import axios from "axios";
-
+import HomeUser from './../HomeUser/HomeUser';
+import ReactDOM from 'react-dom';
 
 export default class Login extends Component {
   constructor(props) {
@@ -45,15 +46,24 @@ export default class Login extends Component {
       )
       .then(response => {
         console.log(response);
-        alert(response.statusText);
+        if (response.status = 200){
+
+          ReactDOM.render(< HomeUser />, document.getElementById('root'));
+        }
+       
   
-      }).catch(err => {console.log(err.response);});
+      }).catch(err => {alert("Usuario o contraseña no válidos")});
     
       event.preventDefault();
+
+      const token= axios.log_in_token;
+      const refreshtoken= axios.refresh_token;
+
+      
   
     }
 
-
+  
 
 
 
