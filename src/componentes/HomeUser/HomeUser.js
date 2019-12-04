@@ -3,6 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import "./HomeUser.css";
 import InfoUser from './../InfoUser/InfoUser';
 import InfoCar from './../InfoCar/InfoCar';
+import Proveedores from './../Proveedores/Proveedores';
 
 import {Dropdown, Row, ListGroup, Button, Tab, Col} from 'react-bootstrap'; 
 
@@ -74,7 +75,7 @@ export default class HomeUser extends Component {
           <div>uuuuuuu</div>
         </Tab.Pane>
         <Tab.Pane eventKey="#Proveedores">
-          <div>uuuuuuu</div>
+          <Proveedores/>
         </Tab.Pane>
       </Tab.Content>
     </Col>
