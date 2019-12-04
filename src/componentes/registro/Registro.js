@@ -1,7 +1,10 @@
 import React, { Component } from "react";
 import "./Registro.css";
 import axios from "axios";
-import {Redirect} from 'react-router-dom';
+
+import ReactDOM from 'react-dom';
+import Login from './../login/Login';
+
 /*
 import {HashRouter, Router, Switch, BrowserRouter} from 'react-router-dom';
 import {Link} from "react-router-dom";*/
@@ -26,7 +29,7 @@ export default class Registro extends Component {
     this.setState({
       [event.target.name]:event.target.value
     })
-    //this.state[event.target.name] = event.target.value;
+    
   }
   
 
@@ -45,9 +48,18 @@ export default class Registro extends Component {
     .then(response => {
       console.log(response);
 
-    }).catch(err => {console.log(err.response);});
+      if(response.status = 201){
+        alert("Registro exitoso");
+        ReactDOM.render(< Login />, document.getElementById('root'));
+        }
+
+
+
+    }).catch(err => {alert("Ingrese todos los datos")});
   
     event.preventDefault();
+
+    
 
 
     }
@@ -124,7 +136,7 @@ export default class Registro extends Component {
               />
               </div>
               <div className="ingresar">
-              <button  type="submit" >Regiiistrarse</button>
+              <button href="/" type="submit" >Registrarse</button>
               
             </div>
             
