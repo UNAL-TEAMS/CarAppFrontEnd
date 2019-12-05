@@ -1,6 +1,6 @@
 <app-navbar></app-navbar>
 
-<div class="card" style="width: 18rem;">
+<div class="card">
         <img [src]="getAvatarUrl()" >
         <div class="card-body">
           <h5 class="card-title">Perfil</h5>
@@ -8,10 +8,13 @@
         </div>
         <ul class="list-group list-group-flush">
           <li class="list-group-item">Nombre: {{user.name}}</li>
-          <li class="list-group-item">Identificacion: {{user.id}}</li>
-          <li class="list-group-item">Vestibulum at eros</li>
+          <li class="list-group-item">Identificacion: </li>
+          <li class="list-group-item">Correo: </li>
         </ul>
-        
+        <div class="card-body">
+            <button type="button" class="btn btn-dark">Modificar</button>
+            <button type="button" class="btn btn-dark">Cambiar Foto</button>
+        </div>
       </div>
 <div class="container">
     <h1>Perfil</h1>
