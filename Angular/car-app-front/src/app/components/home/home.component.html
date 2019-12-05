@@ -1,32 +1,19 @@
 <app-navbar></app-navbar>
 
 <div class="card">
-        <img [src]="getAvatarUrl()" >
-        <div class="card-body">
-          <h5 class="card-title">Perfil</h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        </div>
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item">Nombre: {{user.name}}</li>
-          <li class="list-group-item">Identificacion: </li>
-          <li class="list-group-item">Correo: </li>
-        </ul>
-        <div class="card-body">
-            <button type="button" class="btn btn-dark">Modificar</button>
-            <button type="button" class="btn btn-dark">Cambiar Foto</button>
-        </div>
-      </div>
-<div class="container">
-    <h1>Perfil</h1>
-    <label for="name"> Nombre: {{user.name}}</label><br>
-    <img [src]="getAvatarUrl()" >
-    
-    <div class="form-group">
-        <label for="file">Cambiar Imagen</label>
-        <input type="file"
-               id="file"
-               (change)="handleFileInput($event.target.files)">
+    <img [src]="getAvatarUrl()">
+    <div class="card-body">
+        <h5 class="card-title">Perfil</h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
     </div>
-
-
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">Nombre: {{user.name}}</li>
+        <li class="list-group-item">Identificacion: {{user.identification}}</li>
+        <li class="list-group-item">Correo: {{user.email}}</li>
+    </ul>
+    <div class="card-body">
+        <!-- <button type="button" class="btn btn-dark">Modificar</button> -->
+        <button type="file" id="file" (change)="handleFileInput($event.target.files)" class="btn btn-dark">Cambiar Foto</button>
+        <button class="btn btn-dark" (click)="logOut()">Cerrar sesión</button>
+    </div>
 </div>

@@ -19,6 +19,10 @@ export class UserService {
     }, errFunc);
   }
 
+  logOut() {
+    this.request.clearTokens();
+  }
+
   register(name: string, identification: number, email: string, password: string, okFunc: (response) => void, errFunc: (err) => void) {
     this.request.sendRequest(this.URL + '/create_user', {name, identification, email, password}, REQUEST_TYPES.PUT, false, okFunc, errFunc);
   }

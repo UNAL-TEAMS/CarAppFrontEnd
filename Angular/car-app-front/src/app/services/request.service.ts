@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { environment } from '../../environments/environment';
 
 export const REQUEST_TYPES = {
   GET: 'GET',
@@ -15,7 +16,39 @@ export class RequestService {
   private logInToken = null;
   private refreshToken = null;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+    this.refreshToken = localStorage.getItem('refreshToken');
+    this.logInToken = localStorage.getItem('logInToken');
+  }
+
+  private refreshTokens(okFunc: () => void, errFunc: (err) => void){
+    const config: any = {
+      responseType: 'text',
+      headers: new HttpHeaders({Authorization: this.refreshToken}),
+    };
+    this.http.get(environment.server_url + '/service/refresh_log_in_token', config).toPromise().then((response) => {
+      this.logInToken = response;
+      okFunc();
+    }, errFunc);
+  }
+
+  private generalRequest(url: string, data: any, config: any, type: string, okFunc: (response) => void, errFunc: (err) => void){
+    let request: Promise<any>;
+    switch (type) {
+      case REQUEST_TYPES.GET: request = this.http.get(url, config).toPromise(); break;
+      case REQUEST_TYPES.POST: request = this.http.post(url, data, config).toPromise(); break;
+      case REQUEST_TYPES.PUT: request = this.http.put(url, data, config).toPromise(); break;
+    }
+
+    request.then(okFunc).catch((err) => {
+      console.error(err);
+      if (err.error !== 'Death token') errFunc(err);
+      else this.refreshTokens(() => {}, (err) => {
+        console.log('error on refresh Token: ' , err);
+        errFunc({error: 'Error on refresh Token'});
+      });
+    });
+  }
 
   sendRequest(url: string, body: any, type: string, useAuth: boolean, okFunc: (response) => void, errFunc: (err) => void ){
     const config: any = {
@@ -23,17 +56,7 @@ export class RequestService {
     };
     if (useAuth && this.logInToken != null ) config.headers = new HttpHeaders({Authorization: this.logInToken});
 
-    let request: Promise<any>;
-    switch (type) {
-      case REQUEST_TYPES.GET: request = this.http.get(url, config).toPromise(); break;
-      case REQUEST_TYPES.POST: request = this.http.post(url, body, config).toPromise(); break;
-      case REQUEST_TYPES.PUT: request = this.http.put(url, body, config).toPromise(); break;
-    }
-
-    request.then(okFunc).catch((err) => {
-      console.error(err);
-      errFunc(err);
-    });
+    this.generalRequest(url, body, config, type, okFunc, errFunc);
   }
 
   sendFile(url: string, file: File, type: string, useAuth: boolean, okFunc: (response) => void, errFunc: (err) => void ){
@@ -45,21 +68,20 @@ export class RequestService {
     const data = new FormData();
     data.append('file', file, file.name);
 
-    let request: Promise<any>;
-    switch (type) {
-      case REQUEST_TYPES.POST: request = this.http.post(url, data, config).toPromise(); break;
-      case REQUEST_TYPES.PUT: request = this.http.put(url, data, config).toPromise(); break;
-    }
-
-    request.then(okFunc).catch((err) => {
-      console.error(err);
-      errFunc(err);
-    });
+    this.generalRequest(url, data, config, type, okFunc, errFunc);
   }
 
-  setTokens(logInToken, refreshToken){
+  setTokens(logInToken, refreshToken) {
     this.logInToken = logInToken;
     this.refreshToken = refreshToken;
+    localStorage.setItem('logInToken', logInToken);
+    localStorage.setItem('refreshToken', refreshToken);
+  }
+
+  clearTokens() {
+    localStorage.clear();
+    this.logInToken = null;
+    this.refreshToken = null;
   }
 
   isLogged(): boolean {
