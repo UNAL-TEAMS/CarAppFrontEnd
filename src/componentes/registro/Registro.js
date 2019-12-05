@@ -4,7 +4,7 @@ import axios from "axios";
 
 import ReactDOM from 'react-dom';
 import Login from './../login/Login';
-
+import { register } from '../../services/request.service';
 
 /*
 import {HashRouter, Router, Switch, BrowserRouter} from 'react-router-dom';
@@ -16,12 +16,11 @@ export default class Registro extends Component {
         super(props);
 
         this.state = {
-
             Nombre: "",
             Correo: "",
             Di: "",
             password: "",
-        }
+        };
         this.handleingresar = this.handleingresar.bind(this);
         this.handleChange = this.handleChange.bind(this);
     }
@@ -29,40 +28,21 @@ export default class Registro extends Component {
     handleChange(event) {
         this.setState({
             [event.target.name]: event.target.value
-        })
-
+        });
     }
 
 
     handleingresar(event) {
 
-        console.log(this.state);
-
-        axios.put('https://carapp-unal-2.herokuapp.com/user/create_user', {
-                name: this.state.Nombre,
-                email: this.state.Correo,
-                identification: this.state.Di,
-                password: this.state.password
-            })
-            .then(response => {
-                console.log(response);
-
-                if (response.status = 201) {
-                    alert("Registro exitoso");
-                    ReactDOM.render( < Login / > , document.getElementById('root'));
-                }
-
-
-
-            }).catch(err => { alert("Ingrese todos los datos") });
-
+        register(this.state.Correo, this.state.Nombre, this.state.password, this.state.Di, (response) => {
+            alert("Registro exitoso");
+            ReactDOM.render( < Login / > , document.getElementById('root'));
+        }, (err) => {
+            console.log(err.response);
+            alert("Ingrese todos los datos");
+        });
         event.preventDefault();
-
-
-
-
     }
-
 
     render() {
 
@@ -147,8 +127,8 @@ export default class Registro extends Component {
 
             value = { this.state.password }
             onChange = { this.handleChange }
-            /> <
-            /div> <
+            /> < /
+            div > <
             div className = "ingresar" >
             <
             button href = "/"

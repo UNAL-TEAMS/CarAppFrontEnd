@@ -9,25 +9,18 @@ import { logIn } from '../../services/request.service';
 export default class Login extends Component {
     constructor(props) {
         super(props);
-
         this.state = {
-
             email: "",
             password: "",
-
-        }
+        };
         this.handleingresar = this.handleingresar.bind(this);
         this.handleChange = this.handleChange.bind(this);
     }
 
-
-
-
     handleChange(event) {
         this.setState({
             [event.target.name]: event.target.value
-        })
-
+        });
     }
 
     handleingresar(event) {
@@ -38,7 +31,6 @@ export default class Login extends Component {
             alert("Usuario o contraseña no válidos");
         });
         event.preventDefault();
-
     }
     render() {
 
