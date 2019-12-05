@@ -1,8 +1,8 @@
 <app-navbar></app-navbar>
 
-<div class="card-deck p-3">
-    <label *ngIf="cars.length == 0">No tiene carros regisrados</label>
-    <div class="card" *ngFor="let car of cars">
+<div class="card-deck p-3 text-white">
+    <label *ngIf="cars.length == 0">No tiene carros registrados</label>
+    <div class="card bg-dark mb-3" *ngFor="let car of cars">
         <img [src]="getCarImage(car.picture)" class="card-img-top" alt="car image">
         <div class="card-body">
             <h5 class="card-title">{{car.trade_mark}} {{car.reference}} Modelo {{car.model}}</h5>
