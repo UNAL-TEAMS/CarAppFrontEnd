@@ -56,3 +56,6 @@ export const logIn = function(email, password, ok_func, err_func) {
         ok_func();
     }, err_func);
 };
+export const getOwnUser = function(ok_func, err_func) {
+    handleRequest(URL + '/user/own_user', REQUEST_TYPES.GET, {}, true, ok_func, err_func);
+};
