@@ -15,6 +15,7 @@ export class LogInComponent implements OnInit {
   sending = false;
   message = '';
   errorLogin = false;
+
   constructor(private userService: UserService,
               private router: Router ) {
     if (userService.isLogged()) router.navigate(['/home']);
@@ -30,7 +31,7 @@ export class LogInComponent implements OnInit {
     }, (err) => {
        this.sending = false;
        this.message = err.error;
-       this.errorLogin=true;
+       this.errorLogin = true;
 
     });
   }

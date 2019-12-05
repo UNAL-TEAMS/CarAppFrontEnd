@@ -42,9 +42,6 @@ export class HomeComponent implements OnInit {
     return 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqgS95mgs06I29L9EpCQ4ymPSE3daG_2AH1ejRNfuSbjBs9tbZ&s'
   }
 
-  logOut() {
-    this.userService.logOut();
-    this.router.navigate(['/logIn']);
-  }
+  
 
 }
