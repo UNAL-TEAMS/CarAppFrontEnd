@@ -27,8 +27,7 @@ export class UserService {
     this.request.sendRequest(this.URL + '/own_user', {}, REQUEST_TYPES.GET, true, okFunc, errFunc);
   }
   uploadImg( file: File, okFunc: (response) => void, errFunc: (err) => void) {
-
-      
+    this.request.sendFile(this.URL + '/upload_avatar', file, REQUEST_TYPES.POST, true, okFunc, errFunc );
   }
 
   isLogged(): boolean {

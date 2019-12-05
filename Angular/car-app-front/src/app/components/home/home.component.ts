@@ -18,7 +18,7 @@ export class HomeComponent implements OnInit {
               private router: Router) {
     if (!userService.isLogged()) this.router.navigate(['/logIn']);
     this.userService.getOwnUser((response) => {
-      this.user = response;
+      this.user = JSON.parse(response);
       console.log(this.user);
     }, (err) => {});
    }
