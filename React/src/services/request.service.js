@@ -40,6 +40,7 @@ function handleRequest(route, req_type, body, needsAuth, okfunc, errfunc) {
     }
 
     promise.then(okfunc).catch(err => {
+        console.log(err, err.response);
         if (!needsAuth || err.response.data !== 'Death token') errfunc(err);
         else refresh(() => handleRequest(route, req_type, body, needsAuth, okfunc, errfunc), errfunc);
     });

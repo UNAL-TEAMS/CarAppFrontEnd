@@ -1,7 +1,6 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 import logo from './logo.svg';
-import "./login.css";
-import axios from "axios";
+import './login.css';
 import HomeUser from './../HomeUser/HomeUser';
 import ReactDOM from 'react-dom';
 import { logIn } from '../../services/request.service';
@@ -10,8 +9,8 @@ export default class Login extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            email: "",
-            password: "",
+            email: '',
+            password: '',
         };
         this.handleingresar = this.handleingresar.bind(this);
         this.handleChange = this.handleChange.bind(this);
@@ -25,13 +24,13 @@ export default class Login extends Component {
 
     handleingresar(event) {
         logIn(this.state.email, this.state.password, (response) => {
-            console.log('ok_login');
             ReactDOM.render( < HomeUser / > , document.getElementById('root'));
         }, (err) => {
             alert("Usuario o contraseña no válidos");
         });
         event.preventDefault();
     }
+
     render() {
 
         return ( <
