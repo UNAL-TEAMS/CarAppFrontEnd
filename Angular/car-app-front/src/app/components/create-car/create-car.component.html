@@ -5,15 +5,26 @@
     </div>
     <div class="form-group">
         <label for="reference">Referencia: </label>
-        <input type="text" class="form-control" id="email" [(ngModel)]="registerInfo.email" name="email" required>
+        <input type="text" class="form-control" id="reference" [(ngModel)]="car.reference" name="reference" required>
     </div>
     <div class="form-group">
-        <label for="ID">Número de Identificación: </label>
-        <input type="number" class="form-control" id="ID" [(ngModel)]="registerInfo.ID" name="ID" required>
+        <label for="model">Modelo: </label>
+        <input type="number" class="form-control" id="model" [(ngModel)]="car.model" name="model" required>
     </div>
     <div class="form-group">
-        <label for="password">Contraseña</label>
-        <input type="password" class="form-control" id="password" [(ngModel)]="registerInfo.password" name="password" required>
+        <label for="license_plate">Placa: </label>
+        <input type="text" class="form-control" id="license_plate" [(ngModel)]="car.license_plate" name="license_plate" required>
     </div>
+    <div class="form-group">
+        <label for="lastSoatDate">Fecha del Soat: </label>
+        <input type="date" class="form-control" id="lastSoatDate" [(ngModel)]="car.lastSoatDate" name="lastSoatDate" required>
+    </div>
+    <input type="checkbox" class="form-control" id="useLastTecDate" [(ngModel)]="useLastTecDate" name="useLastTecDate">
+    <label>Subir fecha de revisión tecnicomecánica</label>
+    <div class="form-group">
+        <label for="lastTecDate">Fecha de revisión tecnicomecánica: </label>
+        <input [disabled]="!useLastTecDate" type="date" class="form-control" id="lastTecDate" [(ngModel)]="car.lastTecDate" name="lastTecDate">
+    </div>
+
     <button type="submit" class="btn btn-secondary btn-block" [disabled]="!registerForm.form.valid || sending">Registrar</button>
 </form>
