@@ -61,3 +61,6 @@ export const register = function(email, name, password, identification, ok_func,
 export const addCar = function(trade_mark, model, reference, lastSoatDate, lastTecDate, license_plate, ok_func, err_func) {
     handleRequest(URL + '/user/add_car', REQUEST_TYPES.POST, { trade_mark, model, reference, lastSoatDate, lastTecDate, license_plate }, true, ok_func, err_func);
 };
+export const getOwnUser = function(ok_func, err_func) {
+    handleRequest(URL + '/user/own_user', REQUEST_TYPES.GET, {}, true, ok_func, err_func);
+};
