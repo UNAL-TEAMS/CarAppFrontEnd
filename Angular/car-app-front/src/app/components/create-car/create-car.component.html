@@ -1,30 +1,47 @@
-<form #registerForm="ngForm" (ngSubmit)="onSubmit()">
-    <div class="form-group">
-        <label for="trade_mark">Marca: </label>
-        <input type="text" class="form-control" id="trade_mark" [(ngModel)]="car.trade_mark" name="trade_mark" required>
+<div class="container h-100">
+        <div class="row align-items-center h-100">
+            <div class="mt-4 mx-auto">
+                <form #registerForm="ngForm" (ngSubmit)="onSubmit()">
+                    <div class="card text-white bg-dark mb-3" style="width: 28rem;">
+                        <div class="card-header">Registro del Carro</div>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="trade_mark">Marca: </label>
+                                <input type="text" class="form-control" id="trade_mark" [(ngModel)]="car.trade_mark" name="trade_mark" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="reference">Referencia: </label>
+                                <input type="text" class="form-control" id="reference" [(ngModel)]="car.reference" name="reference" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="model">Modelo: </label>
+                                <input type="number" class="form-control" id="model" [(ngModel)]="car.model" name="model" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="license_plate">Placa: </label>
+                                <input type="text" class="form-control" id="license_plate" [(ngModel)]="car.license_plate" name="license_plate" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="lastSoatDate">Fecha del Soat: </label>
+                                <input type="date" class="form-control" id="lastSoatDate" [(ngModel)]="car.lastSoatDate" name="lastSoatDate" required>
+                            </div>
+                           
+                            <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="useLastTecDate" [(ngModel)]="useLastTecDate" name="useLastTecDate">
+                                    <label class="custom-control-label" for="useLastTecDate">Subir fecha de revisión tecnomecánica</label>
+                                </div>
+                            <div class="form-group mt-1">
+                                <label for="lastTecDate">Fecha de revisión tecnicomecánica: </label>
+                                <input [disabled]="!useLastTecDate" type="date" class="form-control" id="lastTecDate" [(ngModel)]="car.lastTecDate" name="lastTecDate">
+                            </div>
+    
+                            <button type="submit" class="btn btn-secondary btn-block" [disabled]="!registerForm.form.valid || sending">Registrar</button>
+                            <div class="alert alert-danger ml-3 mr-3" role="alert" *ngIf="registerError">
+                                {{message}}
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
-    <div class="form-group">
-        <label for="reference">Referencia: </label>
-        <input type="text" class="form-control" id="reference" [(ngModel)]="car.reference" name="reference" required>
-    </div>
-    <div class="form-group">
-        <label for="model">Modelo: </label>
-        <input type="number" class="form-control" id="model" [(ngModel)]="car.model" name="model" required>
-    </div>
-    <div class="form-group">
-        <label for="license_plate">Placa: </label>
-        <input type="text" class="form-control" id="license_plate" [(ngModel)]="car.license_plate" name="license_plate" required>
-    </div>
-    <div class="form-group">
-        <label for="lastSoatDate">Fecha del Soat: </label>
-        <input type="date" class="form-control" id="lastSoatDate" [(ngModel)]="car.lastSoatDate" name="lastSoatDate" required>
-    </div>
-    <input type="checkbox" class="form-control" id="useLastTecDate" [(ngModel)]="useLastTecDate" name="useLastTecDate">
-    <label>Subir fecha de revisión tecnicomecánica</label>
-    <div class="form-group">
-        <label for="lastTecDate">Fecha de revisión tecnicomecánica: </label>
-        <input [disabled]="!useLastTecDate" type="date" class="form-control" id="lastTecDate" [(ngModel)]="car.lastTecDate" name="lastTecDate">
-    </div>
-
-    <button type="submit" class="btn btn-secondary btn-block" [disabled]="!registerForm.form.valid || sending">Registrar</button>
-</form>

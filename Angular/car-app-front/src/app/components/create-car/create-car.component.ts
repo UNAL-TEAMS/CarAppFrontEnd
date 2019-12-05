@@ -22,7 +22,8 @@ export class CreateCarComponent implements OnInit {
 
   sending = false;
   useLastTecDate = false;
-
+message="";
+registerError = false;
   constructor(private userService: UserService,
               private router: Router) {
     if (!userService.isLogged()) this.router.navigate(['/logIn']);
@@ -38,7 +39,10 @@ export class CreateCarComponent implements OnInit {
     this.userService.addCar(this.car.trade_mark, this.car.model, this.car.reference,
       this.car.license_plate, this.car.lastSoatDate, lastTechDate, (response) => {
 
-      },(err) => {});
+      },(err) => {
+        this.registerError=true;
+        this.message=err.error;
+      });
   }
 
 }
