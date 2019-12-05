@@ -1,5 +1,11 @@
-img {
-    height: 120px;
-    display: block;
-    margin: 0 auto;
+
+  .user {
+    display: inline-block;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+  
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
   }

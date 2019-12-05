@@ -15,6 +15,7 @@ export class RegisterComponent implements OnInit {
     ID: 0,
     password: '',
   };
+  errorRegister=false;
 
   sending = false;
   message = '';
@@ -34,6 +35,7 @@ export class RegisterComponent implements OnInit {
     }, (err) => {
       console.log(err);
       this.message = err.error;
+      this.errorRegister = true;
       this.sending = false;
     });
   }

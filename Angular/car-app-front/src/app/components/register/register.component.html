@@ -21,8 +21,11 @@
                             <label for="password">Contraseña</label>
                                 <input type="password" class="form-control" id="password" [(ngModel)]="registerInfo.password" name="password" required>
                         </div>
-                           <button type="submit" class="btn btn-secondary btn-block" [disabled]="!registerForm.form.valid || sending">Registrar</button> <label>{{message}}</label>
+                           <button type="submit" class="btn btn-secondary btn-block" [disabled]="!registerForm.form.valid || sending">Registrar</button> 
                         </div>
+                        <div class="alert alert-danger ml-3 mr-3" role="alert" *ngIf="errorRegister">
+                                {{message}}
+                              </div>
                     </div>
                 </form>
             </div>

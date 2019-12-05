@@ -1,21 +1,38 @@
 <app-navbar></app-navbar>
 
-<div class="card">
-        <img [src]="getAvatarUrl()" >
-        <div class="card-body">
-          <h5 class="card-title">Perfil</h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+
+<div class="container h-100">
+        <div class="row align-items-center h-100">
+            <div class="mt-4 mx-auto">
+                    <div class="card text-white bg-dark mb-3" style="width: 28rem;">
+                        <div class="card-header">
+                                Perfil
+                        </div>
+                        
+                        <img [src]="getAvatarUrl()"  class="card-img-top user" alt="FotoIcon">
+                        <div class="card-body">
+                            
+                            <p class="card-text">Nombre: {{user.name}}</p>
+                            <p class="card-text">Identificacion: {{user.identification}}</p>
+                            <p class="card-text">Correo: {{user.email}}</p>
+                            
+    
+                            <button type="submit" class="btn btn-secondary" >Modificar</button>
+                            <div class="btn btn-secondary btn-sm float-left">
+                                    <span>Choose file</span>
+                                    <input type="file" 
+                                    (change)="handleFileInput($event.target.files)">
+                                  </div>
+
+                            
+                        </div>
+                    </div>
+        
+            </div>
         </div>
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item">Nombre: {{user.name}}</li>
-          <li class="list-group-item">Identificacion: </li>
-          <li class="list-group-item">Correo: </li>
-        </ul>
-        <div class="card-body">
-            <button type="button" class="btn btn-dark">Modificar</button>
-            <button type="button" class="btn btn-dark">Cambiar Foto</button>
-        </div>
-      </div>
+    </div>
+
+
 <div class="container">
     <h1>Perfil</h1>
     <label for="name"> Nombre: {{user.name}}</label><br>
@@ -23,9 +40,7 @@
     
     <div class="form-group">
         <label for="file">Cambiar Imagen</label>
-        <input type="file"
-               id="file"
-               (change)="handleFileInput($event.target.files)">
+        
     </div>
 
 
