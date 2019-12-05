@@ -38,10 +38,13 @@ registerError = false;
     if (!this.useLastTecDate) lastTechDate = undefined;
     this.userService.addCar(this.car.trade_mark, this.car.model, this.car.reference,
       this.car.license_plate, this.car.lastSoatDate, lastTechDate, (response) => {
-
-      },(err) => {
-        this.registerError=true;
+        this.router.navigate(['/car']);
+        this.sending = false;
+      }, (err) => {
+        console.log(err.error);
+        this.sending = false;
         this.message=err.error;
+        this.registerError=true;
       });
   }
 

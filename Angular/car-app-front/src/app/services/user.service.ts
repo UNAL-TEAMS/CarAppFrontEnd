@@ -45,7 +45,7 @@ export class UserService {
       license_plate: licensePlate,
       model, reference, lastSoatDate, lastTecDate
     };
-    this.request.sendRequest(this.URL + '/create_car', data, REQUEST_TYPES.POST, true, okFunc, errFunc );
+    this.request.sendRequest(this.URL + '/add_car', data, REQUEST_TYPES.POST, true, okFunc, errFunc );
   }
 
   isLogged(): boolean {

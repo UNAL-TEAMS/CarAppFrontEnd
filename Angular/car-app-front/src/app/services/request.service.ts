@@ -28,7 +28,7 @@ export class RequestService {
     };
     this.http.get(environment.server_url + '/service/refresh_log_in_token', config).toPromise().then((response) => {
       this.setTokens(response, this.refreshToken);
-      console.log('Updated Token: ', this.logInToken);
+      console.log('Updated Token: ', this.logInToken === response);
       okFunc();
     }, errFunc);
   }
@@ -45,7 +45,7 @@ export class RequestService {
       console.error(err);
       console.log('Is death token: ', err.error === 'Death token' );
       if (err.error !== 'Death token') errFunc(err);
-      else this.refreshTokens(() => this.generalRequest(url, data, config, type, okFunc, errFunc)
+      else this.refreshTokens(() => {}//this.generalRequest(url, data, config, type, okFunc, errFunc)
       , (err) => {
         console.log('error on refresh Token: ' , err);
         errFunc({error: 'Error on refresh Token'});
