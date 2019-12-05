@@ -33,15 +33,8 @@
     </div>
 
 
-<div class="container">
-    <h1>Perfil</h1>
-    <label for="name"> Nombre: {{user.name}}</label><br>
-    <img [src]="getAvatarUrl()" >
-    
-    <div class="form-group">
-        <label for="file">Cambiar Imagen</label>
-        
+    <div class="card-body">
+        <!-- <button type="button" class="btn btn-dark">Modificar</button> -->
+        <button type="file" id="file" (change)="handleFileInput($event.target.files)" class="btn btn-dark">Cambiar Foto</button>
+        <button class="btn btn-dark" (click)="logOut()">Cerrar sesión</button>
     </div>
-
-
-</div>

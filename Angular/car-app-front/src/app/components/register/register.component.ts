@@ -20,15 +20,18 @@ export class RegisterComponent implements OnInit {
   sending = false;
   message = '';
 
-  constructor(private user: UserService,
-              private router: Router) { }
+  constructor(private userService: UserService,
+              private router: Router) {
+    if (userService.isLogged()) router.navigate(['/home']);
+  }
 
   ngOnInit() {
   }
 
   onSubmit() {
     this.sending = true;
-    this.user.register(this.registerInfo.name, this.registerInfo.ID, this.registerInfo.email, this.registerInfo.password, (response) => {
+    this.userService.register(this.registerInfo.name, this.registerInfo.ID,
+      this.registerInfo.email, this.registerInfo.password, (response) => {
       alert('usuario registrado');
       this.router.navigate(['/logIn']);
       this.sending = false;
