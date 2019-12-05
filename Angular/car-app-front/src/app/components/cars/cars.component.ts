@@ -34,7 +34,6 @@ export class CarsComponent implements OnInit {
   }
 
   handleFileInput(files: FileList, car: Car) {
-    console.log('here');
     const fileToUpload = files.item(0);
     this.userService.uploadCarImg(fileToUpload, car._id, (response) => {
       this.loadCars();

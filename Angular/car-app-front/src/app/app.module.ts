@@ -12,6 +12,9 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { CarsComponent } from './components/cars/cars.component';
 import { ProvidersComponent } from './components/providers/providers.component';
 import { NotifyComponent } from './components/notify/notify.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CreateCarComponent } from './components/create-car/create-car.component';
+
 
 @NgModule({
   declarations: [
@@ -23,12 +26,14 @@ import { NotifyComponent } from './components/notify/notify.component';
     CarsComponent,
     ProvidersComponent,
     NotifyComponent,
+    CreateCarComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

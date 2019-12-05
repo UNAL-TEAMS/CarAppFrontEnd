@@ -45,7 +45,7 @@ export class RequestService {
       console.error(err);
       console.log('Is death token: ', err.error === 'Death token' );
       if (err.error !== 'Death token') errFunc(err);
-      else this.refreshTokens(() => {}//this.generalRequest(url, data, config, type, okFunc, errFunc)
+      else this.refreshTokens(() => this.generalRequest(url, data, config, type, okFunc, errFunc)
       , (err) => {
         console.log('error on refresh Token: ' , err);
         errFunc({error: 'Error on refresh Token'});

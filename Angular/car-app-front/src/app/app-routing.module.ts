@@ -6,12 +6,15 @@ import { HomeComponent } from './components/home/home.component';
 import { CarsComponent } from './components/cars/cars.component';
 import { ProvidersComponent } from './components/providers/providers.component';
 import { NotifyComponent } from './components/notify/notify.component';
+import { CreateCarComponent } from './components/create-car/create-car.component';
+
 const routes: Routes = [
   { path: 'home', component: HomeComponent},
   { path: 'logIn', component: LogInComponent },
   { path: 'register', component: RegisterComponent},
   { path: 'provider', component: ProvidersComponent},
   { path: 'car', component: CarsComponent},
+  { path: 'create-car', component: CreateCarComponent},
   { path: 'notify', component: NotifyComponent},
   { path: '', redirectTo: '/logIn', pathMatch: 'full'},
   { path: '**', redirectTo: '/logIn', pathMatch: 'full'}
