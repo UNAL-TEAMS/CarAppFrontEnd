@@ -37,8 +37,11 @@ export class CreateCarComponent implements OnInit {
     if (!this.useLastTecDate) lastTechDate = undefined;
     this.userService.addCar(this.car.trade_mark, this.car.model, this.car.reference,
       this.car.license_plate, this.car.lastSoatDate, lastTechDate, (response) => {
-
-      },(err) => {});
+        this.router.navigate(['/car']);
+        this.sending = false;
+      }, (err) => {
+        this.sending = false;
+      });
   }
 
 }
