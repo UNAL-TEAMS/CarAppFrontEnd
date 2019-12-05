@@ -40,6 +40,7 @@ export class CreateCarComponent implements OnInit {
         this.router.navigate(['/car']);
         this.sending = false;
       }, (err) => {
+        console.log(err.error);
         this.sending = false;
       });
   }
