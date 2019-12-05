@@ -27,7 +27,8 @@ export class RequestService {
       headers: new HttpHeaders({Authorization: this.refreshToken}),
     };
     this.http.get(environment.server_url + '/service/refresh_log_in_token', config).toPromise().then((response) => {
-      this.logInToken = response;
+      this.setTokens(response, this.refreshToken);
+      console.log('Updated Token: ', this.logInToken);
       okFunc();
     }, errFunc);
   }
@@ -42,8 +43,10 @@ export class RequestService {
 
     request.then(okFunc).catch((err) => {
       console.error(err);
+      console.log('Is death token: ', err.error === 'Death token' );
       if (err.error !== 'Death token') errFunc(err);
-      else this.refreshTokens(() => {}, (err) => {
+      else this.refreshTokens(() => {}//this.generalRequest(url, data, config, type, okFunc, errFunc)
+      , (err) => {
         console.log('error on refresh Token: ' , err);
         errFunc({error: 'Error on refresh Token'});
       });
@@ -59,7 +62,7 @@ export class RequestService {
     this.generalRequest(url, body, config, type, okFunc, errFunc);
   }
 
-  sendFile(url: string, file: File, type: string, useAuth: boolean, okFunc: (response) => void, errFunc: (err) => void ){
+  sendFile(url: string, file: File, body: any, type: string, useAuth: boolean, okFunc: (response) => void, errFunc: (err) => void ){
     const config: any = {
       responseType: 'text'
     };
@@ -67,6 +70,7 @@ export class RequestService {
 
     const data = new FormData();
     data.append('file', file, file.name);
+    for (const tag in body) data.append(tag, body[tag]);
 
     this.generalRequest(url, data, config, type, okFunc, errFunc);
   }

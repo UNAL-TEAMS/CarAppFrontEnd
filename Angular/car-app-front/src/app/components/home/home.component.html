@@ -13,7 +13,8 @@
     </ul>
     <div class="card-body">
         <!-- <button type="button" class="btn btn-dark">Modificar</button> -->
-        <button type="file" id="file" (change)="handleFileInput($event.target.files)" class="btn btn-dark">Cambiar Foto</button>
+        <label>Cambiar Foto</label>
+        <input type="file" id="file" (change)="handleFileInput($event.target.files)" class="btn btn-dark">
         <button class="btn btn-dark" (click)="logOut()">Cerrar sesión</button>
     </div>
 </div>
