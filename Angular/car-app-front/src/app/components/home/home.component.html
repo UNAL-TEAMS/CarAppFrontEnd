@@ -1,5 +1,29 @@
+<app-navbar></app-navbar>
+
+<div class="card" style="width: 18rem;">
+        <img [src]="getAvatarUrl()" >
+        <div class="card-body">
+          <h5 class="card-title">Perfil</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">Nombre: {{user.name}}</li>
+          <li class="list-group-item">Identificacion: {{user.id}}</li>
+          <li class="list-group-item">Vestibulum at eros</li>
+        </ul>
+        
+      </div>
 <div class="container">
     <h1>Perfil</h1>
-    <label for="name">Nombre: {{user.name}} </label><br>
-    <img [src]="getAvatarUrl()">
+    <label for="name"> Nombre: {{user.name}}</label><br>
+    <img [src]="getAvatarUrl()" >
+    
+    <div class="form-group">
+        <label for="file">Cambiar Imagen</label>
+        <input type="file"
+               id="file"
+               (change)="handleFileInput($event.target.files)">
+    </div>
+
+
 </div>

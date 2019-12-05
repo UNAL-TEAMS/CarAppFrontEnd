@@ -8,6 +8,10 @@ import { RegisterComponent } from './components/register/register.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './components/home/home.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { CarsComponent } from './components/cars/cars.component';
+import { ProvidersComponent } from './components/providers/providers.component';
+import { NotifyComponent } from './components/notify/notify.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +19,10 @@ import { HomeComponent } from './components/home/home.component';
     LogInComponent,
     RegisterComponent,
     HomeComponent,
+    NavbarComponent,
+    CarsComponent,
+    ProvidersComponent,
+    NotifyComponent,
   ],
   imports: [
     BrowserModule,

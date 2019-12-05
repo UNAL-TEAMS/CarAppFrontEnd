@@ -26,6 +26,10 @@ export class UserService {
   getOwnUser( okFunc: (response) => void, errFunc: (err) => void){
     this.request.sendRequest(this.URL + '/own_user', {}, REQUEST_TYPES.GET, true, okFunc, errFunc);
   }
+  uploadImg( file: File, okFunc: (response) => void, errFunc: (err) => void) {
+
+      
+  }
 
   isLogged(): boolean {
     return this.request.isLogged();
