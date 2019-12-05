@@ -11,7 +11,9 @@
             <p *ngIf="car.lastTecDate" class="card-text"><small class="text-muted">Última tecnicomecanica: {{car.lastTecDate | date: 'longDate'}}</small></p>
             <p *ngIf="car.lastSoatDate" class="card-text"><small class="text-muted">Soat: {{car.lastSoatDate | date: 'longDate'}}</small></p>
             <p *ngIf="car.last5krev" class="card-text"><small class="text-muted">Última revisión de 5K: {{car.last5krev | date: 'longDate'}}</small></p>
-            <button type="file" id="file" (change)="handleFileInput($event.target.files, car)" class="btn btn-dark">Cambiar Foto</button>
+            <label>Cambiar Foto</label>
+            <input type="file" id="file" (change)="handleFileInput($event.target.files, car)" class="btn btn-dark">
         </div>
     </div>
+    <button class="btn btn-dark" routerLink="/create-car">añadir carro</button>
 </div>

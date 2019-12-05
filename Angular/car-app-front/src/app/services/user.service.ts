@@ -38,6 +38,16 @@ export class UserService {
     this.request.sendFile(this.URL + '/upload_car_image', file, {car_id: carId}, REQUEST_TYPES.POST, true, okFunc, errFunc );
   }
 
+  addCar(tradeMark: string, model: string, reference: string, licensPlate: string,
+         lastSoatDate: Date, lastTecDate: Date, okFunc: (response) => void, errFunc: (err) => void) {
+    const data = {
+      trade_mark: tradeMark,
+      license_plate: licensPlate,
+      model, reference, lastSoatDate, lastTecDate
+    };
+    this.request.sendRequest(this.URL + '/create_car', data, REQUEST_TYPES.POST, true, okFunc, errFunc );
+  }
+
   isLogged(): boolean {
     return this.request.isLogged();
   }
