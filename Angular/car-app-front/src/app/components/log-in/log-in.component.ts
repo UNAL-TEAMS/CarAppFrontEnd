@@ -16,7 +16,9 @@ export class LogInComponent implements OnInit {
   message = '';
 
   constructor(private userService: UserService,
-              private router: Router ) {}
+              private router: Router ) {
+    if (userService.isLogged()) router.navigate(['/home']);
+  }
 
   ngOnInit() {}
 
