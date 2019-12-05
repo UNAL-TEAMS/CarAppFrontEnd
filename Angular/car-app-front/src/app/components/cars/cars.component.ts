@@ -33,4 +33,12 @@ export class CarsComponent implements OnInit {
     return 'https://www.pngtube.com/myfile/detail/409-4092522_car-front-car-icon-png.png';
   }
 
+  handleFileInput(files: FileList, car: Car) {
+    console.log('here');
+    const fileToUpload = files.item(0);
+    this.userService.uploadCarImg(fileToUpload, car._id, (response) => {
+      this.loadCars();
+    }, (err) => {});
+  }
+
 }

@@ -8,9 +8,10 @@
             <h5 class="card-title">{{car.trade_mark}} {{car.reference}} Modelo {{car.model}}</h5>
             <p class="card-text">Kilometraje: {{car.currentKilometer}}</p>
             <p class="card-text">Placa: {{car.license_plate}}</p>
-            <p *ngIf="car.lastTecDate" class="card-text"><small class="text-muted">Última tecnicomecanica: {{car.lastTecDate}}</small></p>
-            <p *ngIf="car.lastSoatDate" class="card-text"><small class="text-muted">Soat: {{car.lastSoatDate}}</small></p>
-            <p *ngIf="car.last5krev" class="card-text"><small class="text-muted">Última revisión de 5K: {{car.last5krev}}</small></p>
+            <p *ngIf="car.lastTecDate" class="card-text"><small class="text-muted">Última tecnicomecanica: {{car.lastTecDate | date: 'longDate'}}</small></p>
+            <p *ngIf="car.lastSoatDate" class="card-text"><small class="text-muted">Soat: {{car.lastSoatDate | date: 'longDate'}}</small></p>
+            <p *ngIf="car.last5krev" class="card-text"><small class="text-muted">Última revisión de 5K: {{car.last5krev | date: 'longDate'}}</small></p>
+            <button type="file" id="file" (change)="handleFileInput($event.target.files, car)" class="btn btn-dark">Cambiar Foto</button>
         </div>
     </div>
 </div>
