@@ -1,8 +1,12 @@
 <app-navbar></app-navbar>
 <div class="container">
-<div class="card-deck p-3 text-white">
+<div class="row row-cols-1 row-cols-md-3 p-3 text-white">
     <label *ngIf="cars.length == 0">No tiene carros registrados</label>
-    <div class="card bg-dark mb-3 " *ngFor="let car of cars">
+    <div class="col mb-4" *ngFor="let car of cars">
+            
+          
+    <div class="card bg-dark mb-3 " >
+        
         <img [src]="getCarImage(car.picture)" class="card-img-top" alt="car image">
         <div class="card-body">
             <h5 class="card-title">{{car.trade_mark}} {{car.reference}} Modelo {{car.model}}</h5>
@@ -15,6 +19,7 @@
             <input type="file" id="file" (change)="handleFileInput($event.target.files, car)" class="btn btn-dark">
         </div>
     </div>
+</div>
 </div>
 <button class="btn btn-dark btn-block" routerLink="/create-car">Añadir Carro</button>
 </div>
