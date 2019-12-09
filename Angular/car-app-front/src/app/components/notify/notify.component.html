@@ -1,3 +1,69 @@
 
 <app-navbar></app-navbar>
-<p>notify works!</p>
+<div class="container mt-4">
+<div class="accordion" id="accordionExample">
+    <div class="card text-white bg-dark">
+      <div class="card-header" id="headingOne">
+        <h2 class="mb-0">
+          <button class="btn btn-link text-white" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+            Advertencia (numero de adv)
+          </button>
+        </h2>
+      </div>
+  
+      <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+        <div class="card-body">
+        
+        <ul class="list-group">
+        
+            <li class="list-group-item list-group-item-dark border-warning"><div class="row">
+                <div class="col my-auto">
+                  Placa: 
+                </div>
+                <div class="col my-auto">
+                  Info:
+                </div>
+                <div class="col">
+                    <button type="button" class="btn btn-secondary">Actualizar...</button>
+                    <button type="button" class="btn btn-secondary ml-4" >Ver Proovedores</button>
+                    
+                </div>
+              </div></li>
+         
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="card text-white bg-dark">
+      <div class="card-header" id="headingTwo">
+        <h2 class="mb-0">
+          <button class="btn btn-link collapsed text-white" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+            Urgencia
+          </button>
+        </h2>
+      </div>
+      <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+        <div class="card-body">
+            <ul class="list-group">
+        
+                <li class="list-group-item list-group-item-dark border-danger"><div class="row">
+                    <div class="col my-auto">
+                      Placa: 
+                    </div>
+                    <div class="col my-auto">
+                      Info:
+                    </div>
+                    <div class="col">
+                        <button type="button" class="btn btn-secondary">Actualizar...</button>
+                        <button type="button" class="btn btn-secondary ml-4" >Ver Proovedores</button>
+                        
+                    </div>
+                  </div></li>
+             
+              </ul>
+            </div>
+      </div>
+    </div>
+
+  </div>
+</div>
