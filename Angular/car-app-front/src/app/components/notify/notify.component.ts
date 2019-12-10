@@ -74,14 +74,14 @@ export class NotifyComponent implements OnInit {
         if (car.lastTecDate) {
           if (moment().isAfter(moment(car.lastTecDate))) this.severeNotifications.push(
             {car, type: NOTIFICATION_TYPE.TecnoMecanica, info: 'Revisión tecnicomecánica vencida'});
-          else if (moment().diff(moment(car.lastTecDate), 'week', true) <= 1) this.warningNotifications.push(
+          else if (moment(car.lastTecDate).diff(moment(), 'week', true) <= 1) this.warningNotifications.push(
             {car, type: NOTIFICATION_TYPE.TecnoMecanica, info: 'Revisión tecnicomecánica próxima a vencer'});
         }
 
         if (car.lastSoatDate) {
           if (moment().isAfter(moment(car.lastSoatDate))) this.severeNotifications.push(
             {car, type: NOTIFICATION_TYPE.SOAT, info: 'SOAT vencido'});
-          else if (moment().diff(moment(car.lastSoatDate), 'week', true) <= 1) this.warningNotifications.push(
+          else if (moment(car.lastSoatDate).diff(moment(), 'week', true) <= 1) this.warningNotifications.push(
             {car, type: NOTIFICATION_TYPE.SOAT, info: 'SOAT próximo a vencer'});
         }
       }
@@ -113,7 +113,7 @@ export class NotifyComponent implements OnInit {
     modal.componentInstance.sendEvent.subscribe((emmited) => {
       this.updating = true;
       let lastSoatUpdate, last5KUpdate, lastTecUpdate;
-      switch (notification.type){
+      switch (notification.type) {
         case NOTIFICATION_TYPE.SOAT: lastSoatUpdate = emmited.date; break;
         case NOTIFICATION_TYPE.TecnoMecanica: lastTecUpdate = emmited.date; break;
         case NOTIFICATION_TYPE.Kilometer: last5KUpdate = emmited.number; break;
