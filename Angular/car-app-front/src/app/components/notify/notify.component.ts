@@ -25,7 +25,7 @@ export class NotifyModalComponent {
   @Input() useDate;
   @Input() title;
   @Input() description;
-
+  @Input() modal;
   inputDate: Date;
   inputNumber: number;
   constructor(public activeModal: NgbActiveModal) {}
@@ -80,7 +80,7 @@ export class NotifyComponent implements OnInit {
   }
 
   updateValue(notification: Notification, severe: boolean){
-    const modal = this.modalService.open(NotifyModalComponent);
+    const modal = this.modalService.open(NotifyModalComponent, { centered: true });
     let title = '', description = '', useDate = true;
     switch (notification.type) {
       case NOTIFICATION_TYPE.SOAT:
@@ -101,7 +101,6 @@ export class NotifyComponent implements OnInit {
     modal.componentInstance.title = title;
     modal.componentInstance.description = description;
     modal.componentInstance.useDate = useDate;
-
 
   }
 }
