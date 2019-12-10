@@ -26,6 +26,8 @@ export class NotifyModalComponent {
   @Input() title;
   @Input() description;
 
+  inputDate: Date;
+  inputNumber: number;
   constructor(public activeModal: NgbActiveModal) {}
 }
 
@@ -79,15 +81,13 @@ export class NotifyComponent implements OnInit {
 
   updateValue(notification: Notification, severe: boolean){
     const modal = this.modalService.open(NotifyModalComponent);
-    let title = '';
-    let description = '';
-    let useDate = true;
+    let title = '', description = '', useDate = true;
     switch (notification.type) {
       case NOTIFICATION_TYPE.SOAT:
         title = 'Actualización fecha del soat';
         description = 'Ingrese la nueva fecha de vencimiento del soat';
         break;
-      case NOTIFICATION_TYPE.SOAT:
+      case NOTIFICATION_TYPE.TecnoMecanica:
         title = 'Actualización fecha de la revisión tecnicomecánica';
         description = 'Ingrese la nueva fecha de vencimiento del la revisión tecnicomecánica';
         break;
@@ -101,5 +101,7 @@ export class NotifyComponent implements OnInit {
     modal.componentInstance.title = title;
     modal.componentInstance.description = description;
     modal.componentInstance.useDate = useDate;
+
+
   }
 }

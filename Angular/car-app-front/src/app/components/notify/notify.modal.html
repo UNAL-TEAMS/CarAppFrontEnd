@@ -1,2 +1,4 @@
 <h1>{{title}}</h1>
 <h3>{{description}}</h3>
+<input *ngIf="useDate" type="date" ngModel="inputDate">
+<input *ngIf="!useDate" type="number" ngModel="inputNumber">
