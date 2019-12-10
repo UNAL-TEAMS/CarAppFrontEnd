@@ -8,8 +8,11 @@
                     Perfil
                    <!-- <button type="submit" class="btn btn-secondary float-right" >Modificar</button>-->
                 </div>
-
-                <img [src]="getAvatarUrl()" class="mx-auto user mt-2" alt="FotoIcon">
+                <label class="mx-auto" for="photo-input">
+                        <img [src]="getAvatarUrl()" class="mx-auto user mt-2" alt="FotoIcon"/>
+                    </label>
+                    <input style="display:none;" id="photo-input" (change)="handleFileInput($event.target.files)" type="file" />
+                    
                 <div class="card-body">
                     <div class="container">
                         <div class="row">
@@ -41,8 +44,6 @@
                             </div>
                         </div>
 
-                    <p class="card-text mt-2">Cambiar Foto</p>
-                    <input type="file" id="file" (change)="handleFileInput($event.target.files)" class="btn btn-dark">
                 </div>
 
                 </div>

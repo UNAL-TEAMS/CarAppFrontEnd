@@ -30,6 +30,9 @@ export class UserService {
   getOwnUser( okFunc: (response) => void, errFunc: (err) => void){
     this.request.sendRequest(this.URL + '/own_user', {}, REQUEST_TYPES.GET, true, okFunc, errFunc);
   }
+  delCar(car_id: string, okFunc: (response) => void, errFunc: (err) => void) {
+    this.request.sendRequest(this.URL + '/del_car', {car_id}, REQUEST_TYPES.POST, true, okFunc, errFunc);
+  }
   uploadImg( file: File, okFunc: (response) => void, errFunc: (err) => void) {
     this.request.sendFile(this.URL + '/upload_avatar', file, {}, REQUEST_TYPES.POST, true, okFunc, errFunc );
   }
