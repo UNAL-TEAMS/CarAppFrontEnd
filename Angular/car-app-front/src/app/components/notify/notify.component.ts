@@ -88,7 +88,7 @@ export class NotifyComponent implements OnInit {
     }, err => {});
   }
 
-  updateValue(notification: Notification, severe: boolean){
+  updateValue(notification: Notification) {
     const modal = this.modalService.open(NotifyModalComponent, { centered: true });
     let title = '', description = '', useDate = true;
     switch (notification.type) {
