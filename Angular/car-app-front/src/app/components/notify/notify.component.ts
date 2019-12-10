@@ -97,8 +97,8 @@ export class NotifyComponent implements OnInit {
         description = 'Ingrese la nueva fecha de vencimiento del soat';
         break;
       case NOTIFICATION_TYPE.TecnoMecanica:
-        title = 'Actualización fecha de la revisión tecnicomecánica';
-        description = 'Ingrese la nueva fecha de vencimiento del la revisión tecnicomecánica';
+        title = 'Actualización fecha de la revisión tecnomecánica';
+        description = 'Ingrese la nueva fecha de vencimiento del la revisión tecnomecánica';
         break;
       case NOTIFICATION_TYPE.Kilometer:
         title = 'Actualización de la revisión del kilometraje del vehiculo';
