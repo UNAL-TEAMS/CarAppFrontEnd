@@ -6,8 +6,10 @@
             
           
     <div class="card bg-dark mb-3 " >
-        
-        <img [src]="getCarImage(car.picture)" class="card-img-top" alt="car image">
+        <label for="{{car.license_plate}}">
+            <img [src]="getCarImage(car.picture)" class="card-img-top" alt="car image"/>
+        </label>
+        <input style="display:none;" id="{{car.license_plate}}" (change)="handleFileInput($event.target.files, car)" type="file" />
         <div class="card-body">
             <h5 class="card-title">{{car.trade_mark}} {{car.reference}} Modelo {{car.model}}</h5>
             <p class="card-text">Kilometraje: {{car.currentKilometer}}</p>
@@ -15,8 +17,8 @@
             <p *ngIf="car.lastTecDate" class="card-text"><small class="text-muted">Última tecnicomecanica: {{car.lastTecDate | date: 'longDate'}}</small></p>
             <p *ngIf="car.lastSoatDate" class="card-text"><small class="text-muted">Soat: {{car.lastSoatDate | date: 'longDate'}}</small></p>
             <p *ngIf="car.last5krev" class="card-text"><small class="text-muted">Última revisión de 5K: {{car.last5krev | date: 'longDate'}}</small></p>
-            <label>Cambiar Foto</label>
-            <input type="file" id="file" (change)="handleFileInput($event.target.files, car)" class="btn btn-dark">
+            <button class="btn btn-secondary btn-block" (click)="delCar(car)" >Borrar Carro</button>
+        
         </div>
     </div>
 </div>

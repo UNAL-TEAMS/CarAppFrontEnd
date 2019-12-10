@@ -40,4 +40,12 @@ export class CarsComponent implements OnInit {
     }, (err) => {});
   }
 
+  delCar(car: Car) {
+    console.log("selected car: ", car);
+
+    this.userService.delCar(car._id, (response) => {
+      this.loadCars();
+    }, (err) => {});
+  }
+
 }
