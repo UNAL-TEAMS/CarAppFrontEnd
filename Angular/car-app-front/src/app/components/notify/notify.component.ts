@@ -1,14 +1,33 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { UserService } from '../../services/user.service';
 import { Router } from '@angular/router';
 import { User, Car } from '../../interfaces/user.interface';
 import * as moment from 'moment';
+import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 export const NOTIFICATION_TYPE = {
   Kilometer: '5K',
   SOAT: 'SOAT',
   TecnoMecanica: 'TecnoMecanica',
 };
+
+interface Notification {
+  car: Car;
+  type: string;
+  info: string;
+}
+
+@Component({
+  selector: 'app-modal-notifications',
+  templateUrl: './notify.modal.html'
+})
+export class NotifyModalComponent {
+  @Input() useDate;
+  @Input() title;
+  @Input() description;
+
+  constructor(public activeModal: NgbActiveModal) {}
+}
 
 @Component({
   selector: 'app-notify',
@@ -17,20 +36,12 @@ export const NOTIFICATION_TYPE = {
 })
 export class NotifyComponent implements OnInit {
 
-  severeNotifications: {
-    car: Car,
-    type: string,
-    info: string,
-  }[] = [];
-
-  warningNotifications: {
-    car: Car,
-    type: string,
-    info: string,
-  }[] = [];
+  severeNotifications: Notification[] = [];
+  warningNotifications: Notification[] = [];
 
   constructor(private userService: UserService,
-              private router: Router) {
+              private router: Router,
+              private modalService: NgbModal) {
     if (!userService.isLogged()) this.router.navigate(['/logIn']);
     this.loadNotifications();
   }
@@ -62,10 +73,33 @@ export class NotifyComponent implements OnInit {
           else if (moment().diff(moment(car.lastSoatDate), 'week', true) <= 1) this.warningNotifications.push(
             {car, type: NOTIFICATION_TYPE.SOAT, info: 'SOAT próximo a vencer'});
         }
-
-        console.log('Warning: ', this.warningNotifications);
-        console.log('Urgent: ', this.severeNotifications);
       }
     }, err => {});
+  }
+
+  updateValue(notification: Notification, severe: boolean){
+    const modal = this.modalService.open(NotifyModalComponent);
+    let title = '';
+    let description = '';
+    let useDate = true;
+    switch (notification.type) {
+      case NOTIFICATION_TYPE.SOAT:
+        title = 'Actualización fecha del soat';
+        description = 'Ingrese la nueva fecha de vencimiento del soat';
+        break;
+      case NOTIFICATION_TYPE.SOAT:
+        title = 'Actualización fecha de la revisión tecnicomecánica';
+        description = 'Ingrese la nueva fecha de vencimiento del la revisión tecnicomecánica';
+        break;
+      case NOTIFICATION_TYPE.Kilometer:
+        title = 'Actualización de la revisión del kilometraje del vehiculo';
+        description = 'Ingrese el kilometraje que tenia el vehiculo cuando hizo la revisión de 5k kilómetros';
+        useDate = false;
+        break;
+    }
+
+    modal.componentInstance.title = title;
+    modal.componentInstance.description = description;
+    modal.componentInstance.useDate = useDate;
   }
 }
