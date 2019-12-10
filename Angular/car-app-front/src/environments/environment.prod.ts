@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  server_url: 'http://localhost:12345'
+  server_url: 'https://carapp-unal-2.herokuapp.com'
 };
