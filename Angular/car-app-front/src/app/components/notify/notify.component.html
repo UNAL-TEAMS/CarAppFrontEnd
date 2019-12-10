@@ -21,7 +21,7 @@
                                     Info: {{not.info}}
                                 </div>
                                 <div class="col">
-                                    <button type="button" class="btn btn-secondary" (click)="updateValue(not, false)">Actualizar...</button>
+                                    <button type="button" class="btn btn-secondary" disabled="updating" (click)="updateValue(not)">Actualizar...</button>
                                     <button type="button" class="btn btn-secondary ml-4">Ver Proovedores</button>
                                 </div>
                             </div>
@@ -50,7 +50,7 @@
                                     Info: {{not.info}}
                                 </div>
                                 <div class="col">
-                                    <button type="button" class="btn btn-secondary" (click)="updateValue(not, true)">Actualizar...</button>
+                                    <button type="button" class="btn btn-secondary" disabled="updating" (click)="updateValue(not)">Actualizar...</button>
                                     <button type="button" class="btn btn-secondary ml-4">Ver Proovedores</button>
                                 </div>
                             </div>

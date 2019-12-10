@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { UserService } from '../../services/user.service';
 import { Router } from '@angular/router';
 import { User, Car } from '../../interfaces/user.interface';
@@ -25,10 +25,16 @@ export class NotifyModalComponent {
   @Input() useDate;
   @Input() title;
   @Input() description;
+  @Output() sendEvent = new EventEmitter<any>();
 
   inputDate: Date;
   inputNumber: number;
   constructor(public activeModal: NgbActiveModal) {}
+
+  send(){
+    this.sendEvent.emit({number: this.inputNumber, date: this.inputDate});
+    this.activeModal.close();
+  }
 }
 
 @Component({
@@ -41,6 +47,8 @@ export class NotifyComponent implements OnInit {
   severeNotifications: Notification[] = [];
   warningNotifications: Notification[] = [];
 
+  updating = false;
+
   constructor(private userService: UserService,
               private router: Router,
               private modalService: NgbModal) {
@@ -52,6 +60,7 @@ export class NotifyComponent implements OnInit {
   }
 
   private loadNotifications() {
+    this.severeNotifications = [], this.warningNotifications = [];
     this.userService.getOwnUser((res) => {
       const user: User = JSON.parse(res);
       for (const car of user.cars) {
@@ -79,7 +88,7 @@ export class NotifyComponent implements OnInit {
     }, err => {});
   }
 
-  updateValue(notification: Notification, severe: boolean){
+  updateValue(notification: Notification) {
     const modal = this.modalService.open(NotifyModalComponent);
     let title = '', description = '', useDate = true;
     switch (notification.type) {
@@ -101,6 +110,21 @@ export class NotifyComponent implements OnInit {
     modal.componentInstance.title = title;
     modal.componentInstance.description = description;
     modal.componentInstance.useDate = useDate;
+    modal.componentInstance.sendEvent.subscribe((emmited) => {
+      this.updating = true;
+      let lastSoatUpdate, last5KUpdate, lastTecUpdate;
+      switch (notification.type){
+        case NOTIFICATION_TYPE.SOAT: lastSoatUpdate = emmited.date; break;
+        case NOTIFICATION_TYPE.TecnoMecanica: lastTecUpdate = emmited.date; break;
+        case NOTIFICATION_TYPE.Kilometer: last5KUpdate = emmited.number; break;
+      }
+      this.userService.updateCar(notification.car._id, lastSoatUpdate, lastTecUpdate, last5KUpdate, () => {
+        this.loadNotifications();
+        this.updating = false;
+      }, (err) => {
+        this.updating = false;
+      });
+    });
 
 
   }

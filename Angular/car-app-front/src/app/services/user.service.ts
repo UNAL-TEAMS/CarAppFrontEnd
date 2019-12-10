@@ -51,7 +51,12 @@ export class UserService {
     this.request.sendRequest(this.URL + '/add_car', data, REQUEST_TYPES.POST, true, okFunc, errFunc );
   }
 
-  isLogged(): boolean {
+  updateCar(carId: string, lastSoatDate: Date, lastTecDate: Date, last5krev: number, okFunc: (response) => void, errFunc: (err) => void){
+    const data = { car_id: carId, lastSoatDate, lastTecDate, last5krev};
+    this.request.sendRequest(this.URL + '/modify_car', data, REQUEST_TYPES.POST, true, okFunc, errFunc);
+  }
+
+  isLogged() {
     return this.request.isLogged();
   }
 }
