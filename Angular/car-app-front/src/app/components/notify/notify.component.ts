@@ -31,7 +31,7 @@ export class NotifyModalComponent {
   inputNumber: number;
   constructor(public activeModal: NgbActiveModal) {}
 
-  send(){
+  send() {
     this.sendEvent.emit({number: this.inputNumber, date: this.inputDate});
     this.activeModal.close();
   }
@@ -88,8 +88,8 @@ export class NotifyComponent implements OnInit {
     }, err => {});
   }
 
-  updateValue(notification: Notification) {
-    const modal = this.modalService.open(NotifyModalComponent);
+  updateValue(notification: Notification, severe: boolean){
+    const modal = this.modalService.open(NotifyModalComponent, { centered: true });
     let title = '', description = '', useDate = true;
     switch (notification.type) {
       case NOTIFICATION_TYPE.SOAT:
@@ -125,7 +125,6 @@ export class NotifyComponent implements OnInit {
         this.updating = false;
       });
     });
-
 
   }
 }

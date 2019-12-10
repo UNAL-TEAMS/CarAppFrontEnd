@@ -1,4 +1,19 @@
-<h1>{{title}}</h1>
-<h3>{{description}}</h3>
-<input *ngIf="useDate" type="date" ngModel="inputDate">
-<input *ngIf="!useDate" type="number" ngModel="inputNumber">
+
+<div class="modal-content bg-dark">
+
+        <div class="modal-header text-white bg-dark">
+          <h4 class="modal-title">{{title}}</h4>
+          <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body text-white bg-dark">
+          <p>{{description}}</p>
+          <input *ngIf="useDate" class="form-control" type="date" ngModel="inputDate">
+
+        <input *ngIf="!useDate" class="form-control" type="number" ngModel="inputNumber">
+        </div>
+        <div class="modal-footer text-white bg-dark">
+          <button type="button" class="btn btn-secondary">Guardar</button>
+        </div>
+</div>
