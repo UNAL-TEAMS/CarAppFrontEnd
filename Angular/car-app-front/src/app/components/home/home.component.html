@@ -3,45 +3,43 @@
 <div class="container h-100">
     <div class="row align-items-center h-100">
         <div class="mt-4 mx-auto">
-            <div class="card text-white bg-dark mb-3" style="width: 28rem;">
-                <div class="card-header">
-                    Perfil
-                   <!-- <button type="submit" class="btn btn-secondary float-right" >Modificar</button>-->
+            <div class="logser text-white mb-3" style="width: 28rem;">
+                <div class="logser-header">
+                    
+                   
                 </div>
                 <label class="mx-auto" for="photo-input">
-                        <img [src]="getAvatarUrl()" class="mx-auto user mt-2" alt="FotoIcon"/>
+                        <img [src]="getAvatarUrl()" class=" user" />
                     </label>
                     <input style="display:none;" id="photo-input" (change)="handleFileInput($event.target.files)" type="file" />
                     
-                <div class="card-body">
+              <div class="logser-body">
+                
                     <div class="container">
-                        <div class="row">
+                        
                             <div class="col">
-                                <p class="card-text">Nombre</p>
-                            </div>
-                            <div class="col">
-                                <p class="card-text">{{user.name}}</p>
-                            </div>
+                            <div class ="dat">
+                                <p class="card-text">Nombre:     {{user.name}}</p>
+                                </div>
+                            
                         </div>
-                        <div class="row mt-2">
+                        
                             <div class="col">
-
-                                <p class="card-text">Identificacion</p>
+                            <div class ="dat">
+                                <p class="card-text">Número de identificación: {{user.identification}}</p>
                             </div>
-                            <div class="col">
-
-                                <p class="card-text">{{user.identification}}</p>
-                            </div>
+                         
                         </div>
-                        <div class="row mt-2">
+                        
                             <div class="col">
-
-                                <p class="card-text">Correo</p>
+                                <div class ="dat">
+                                <p class="card-text">Correo: {{user.email}}</p>
+   
                             </div>
-                            <div class="col">
 
-                                <p class="card-text">{{user.email}}</p>
-                            </div>
+                             <button type="submit" class="btn btn-secondary btn-block" >Modificar</button>
+                             
+                           
                         </div>
 
                 </div>
