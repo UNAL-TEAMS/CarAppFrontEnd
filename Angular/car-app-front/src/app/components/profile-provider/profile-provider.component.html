@@ -6,7 +6,6 @@
             <div class="card text-white bg-dark mb-3" style="width: 28rem;">
                 <div class="card-header">
                     Perfil
-                   <button type="submit" class="btn btn-secondary float-right" >Modificar</button>
                 </div>
                 <label class="mx-auto" for="photo-input">
                         <img [src]="getAvatarUrl()" class="mx-auto user mt-2" alt="FotoIcon"/>
@@ -62,11 +61,38 @@
                         </div>
                         <div class="row mt-2">
                             <div class="col">
-                                <p class="card-text">Revision Tecno</p>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="useLastTecDate" name="useLastTecDate">
+                                    <label class="custom-control-label" for="useLastTecDate">Revision Tecnomecanica</label>
+                                </div>
                             </div>
                             <div class="col">
 
-                                <p class="card-text">Info de la tecmo</p>
+                                <p class="card-text">Info del servicio <p>
+                            </div>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col">
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="Mant5k" name="Mant5k">
+                                    <label class="custom-control-label" for="Mant5k">Mantenimiento 5k</label>
+                                </div>
+                            </div>
+                            <div class="col">
+
+                                <p class="card-text">Info del servicio</p>
+                            </div>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col">
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="SOAT" name="SOAT">
+                                    <label class="custom-control-label" for="SOAT">SOAT</label>
+                                </div>
+                            </div>
+                            <div class="col">
+
+                                <p class="card-text">Info  del servicio</p>
                             </div>
                         </div>
 

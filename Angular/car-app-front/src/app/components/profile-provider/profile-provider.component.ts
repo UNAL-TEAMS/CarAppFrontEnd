@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ProviderService } from '../../services/provider.service';
+import { Provider } from '../../interfaces/provider.interfaces';
 
 @Component({
   selector: 'app-profile-provider',
@@ -7,18 +9,33 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfileProviderComponent implements OnInit {
 
-  constructor() { }
+  constructor(private providerService: ProviderService) { }
+
+  provider: Provider = {name: '', NIT: 0, email: '',phone:0,avatar: '',
+                        services: {
+                          Rev5k: {
+                            description: '',
+                            has: false
+                          },
+                          RevTec: {
+                            description: '',
+                            has: false
+                          },
+                          Soat: {
+                            description: '',
+                            has: false
+                          },
+                        }};
 
   ngOnInit() {
   }
 
-  //user: User = {name: '', identification: 0, email: ''};
 
   handleFileInput(files: FileList) {
     const fileToUpload = files.item(0);
-    /*this.userService.uploadImg(fileToUpload, (response) => {
-      this.loadUser();
-    }, (err) => {});*/
+    this.providerService.uploadAvatar(fileToUpload, (response) => {
+      //this.loadUser();
+    }, (err) => {});
   }
 
   getAvatarUrl() {/*
