@@ -53,4 +53,8 @@ export class ProviderService {
   logOut() {
     this.request.clearTokens();
   }
+
+  isLogged() {
+    return this.request.isLogged();
+  }
 }
