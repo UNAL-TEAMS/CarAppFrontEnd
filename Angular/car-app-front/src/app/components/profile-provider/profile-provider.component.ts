@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { Provider, Service } from '../../interfaces/provider.interfaces';
 import { environment } from '../../../environments/environment';
 import { NgbModal, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import "./profile-provider.component.css";
 
 @Component({
   selector: 'app-profile-provider-service-modal',

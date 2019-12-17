@@ -3,9 +3,9 @@
 
     overflow: auto;
 
-    width: 390px;
+    width: auto;
 
-    height: 70vh;
+    height: auto;
 
     display: flex;
 
@@ -21,7 +21,9 @@
 
     background-color: #080114;
 
-    justify-content: center
+    justify-content: center;
+
+    margin-top: 50px;
 
   }
 

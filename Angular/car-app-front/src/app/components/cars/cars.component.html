@@ -5,7 +5,7 @@
     <div class="col mb-4" *ngFor="let car of cars">
             
           
-    <div class="card bg-dark mb-3 " >
+    <div class="logser bg-secundary mb-3 " >
         <label for="{{car.license_plate}}">
             <img [src]="getCarImage(car.picture)" class="card-img-top" alt="car image"/>
         </label>
@@ -17,11 +17,11 @@
             <p *ngIf="car.lastTecDate" class="card-text"><small class="text-muted">Última tecnicomecanica: {{car.lastTecDate | date: 'longDate'}}</small></p>
             <p *ngIf="car.lastSoatDate" class="card-text"><small class="text-muted">Soat: {{car.lastSoatDate | date: 'longDate'}}</small></p>
             <p *ngIf="car.last5krev" class="card-text"><small class="text-muted">Última revisión de 5K: {{car.last5krev | date: 'longDate'}}</small></p>
-            <button class="btn btn-secondary btn-block" (click)="delCar(car)" >Borrar Carro</button>
+            <button class="btn btn-danger btn-block" (click)="delCar(car)" >Borrar Carro</button>
         
         </div>
     </div>
 </div>
 </div>
-<button class="btn btn-dark btn-block" routerLink="/create-car">Añadir Carro</button>
+<button class="btn btn-light btn-block" routerLink="/create-car">Añadir Carro</button>
 </div>
