@@ -5,31 +5,31 @@
             <div class="card-header" id="headingOne">
                 <h2 class="mb-0">
                     <button class="btn btn-link text-white" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                      Revisión Tecnomecanica (Numero)
+                      Revisión Tecnomecanica ({{providersTecno.length}})
                     </button>
                 </h2>
             </div>
             <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
                 <div class="card-body">
                     <ul class="list-unstyled">
-                        <li class="media ">
-                          <img class="user align-self-center mr-3" src="https://pbs.twimg.com/profile_images/1525602057/james_400x400.jpg" alt="Generic placeholder image">
-                          <div class="media-body">
-                            <h5 class="mt-0 mb-1">Nombre de empresa</h5>
-                            <div class="row">
-                                <div class="col-3">Descripción</div>
-                                <div class="col">descripcion op del servicio</div>
+                        <li class="media mt-4" *ngFor="let soa of providersTecno">
+                            <img class="user align-self-center mr-3" [src]="getAvatarUrl(soa)" alt="Generic placeholder image">
+                            <div class="media-body">
+                              <h5 class="mt-0 mb-1">{{soa.name}}</h5>
+                              <div class="row">
+                                  <div class="col-3">Descripción</div>
+                                  <div class="col">{{soa.services.RevTec.description}}</div>
+                              </div>
+                              <div class="row">
+                                  <div class="col-3">Email</div>
+                                  <div class="col">{{soa.email}}</div>
+                              </div>
+                              <div class="row">
+                                  <div class="col-3">Teléfono</div>
+                                  <div class="col">{{soa.phone}}</div>
+                              </div>
                             </div>
-                            <div class="row">
-                                <div class="col-3">Email</div>
-                                <div class="col">descripcion op del servicio</div>
-                            </div>
-                            <div class="row">
-                                <div class="col-3">Teléfono</div>
-                                <div class="col">descripcion op del servicio</div>
-                            </div>
-                          </div>
-                        </li>
+                          </li>
                       </ul>
                 </div>
             </div>
@@ -38,31 +38,31 @@
             <div class="card-header" id="headingTwo">
                 <h2 class="mb-0">
                     <button class="btn btn-link text-white" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-                      Mantenimiento 5k (Numero)
+                      Mantenimiento 5k ({{providers5k.length}})
                     </button>
                 </h2>
             </div>
             <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
                 <div class="card-body">
                     <ul class="list-unstyled">
-                        <li class="media ">
-                          <img class="user align-self-center mr-3" src="https://pbs.twimg.com/profile_images/1525602057/james_400x400.jpg" alt="Generic placeholder image">
-                          <div class="media-body">
-                            <h5 class="mt-0 mb-1">Nombre de empresa</h5>
-                            <div class="row">
-                                <div class="col-3">Descripción</div>
-                                <div class="col">descripcion op del servicio</div>
+                        <li class="media mt-4" *ngFor="let soa of providers5k">
+                            <img class="user align-self-center mr-3" [src]="getAvatarUrl(soa)" alt="Generic placeholder image">
+                            <div class="media-body">
+                              <h5 class="mt-0 mb-1">{{soa.name}}</h5>
+                              <div class="row">
+                                  <div class="col-3">Descripción</div>
+                                  <div class="col">{{soa.services.Rev5k.description}}</div>
+                              </div>
+                              <div class="row">
+                                  <div class="col-3">Email</div>
+                                  <div class="col">{{soa.email}}</div>
+                              </div>
+                              <div class="row">
+                                  <div class="col-3">Teléfono</div>
+                                  <div class="col">{{soa.phone}}</div>
+                              </div>
                             </div>
-                            <div class="row">
-                                <div class="col-3">Email</div>
-                                <div class="col">descripcion op del servicio</div>
-                            </div>
-                            <div class="row">
-                                <div class="col-3">Teléfono</div>
-                                <div class="col">descripcion op del servicio</div>
-                            </div>
-                          </div>
-                        </li>
+                          </li>
                       </ul>
                 </div>
             </div>
@@ -71,28 +71,28 @@
             <div class="card-header" id="headingThree">
                 <h2 class="mb-0">
                     <button class="btn btn-link text-white" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
-                      Revisión Tecnomecanica (Numero)
+                      SOAT ({{providersSoat.length}})
                     </button>
                 </h2>
             </div>
             <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
                 <div class="card-body">
                     <ul class="list-unstyled">
-                        <li class="media ">
-                          <img class="user align-self-center mr-3" src="https://pbs.twimg.com/profile_images/1525602057/james_400x400.jpg" alt="Generic placeholder image">
+                        <li class="media mt-4" *ngFor="let soa of providersSoat">
+                          <img class="user align-self-center mr-3" [src]="getAvatarUrl(soa)" alt="Generic placeholder image">
                           <div class="media-body">
-                            <h5 class="mt-0 mb-1">Nombre de empresa</h5>
+                            <h5 class="mt-0 mb-1">{{soa.name}}</h5>
                             <div class="row">
                                 <div class="col-3">Descripción</div>
-                                <div class="col">descripcion op del servicio</div>
+                                <div class="col">{{soa.services.Soat.description}}</div>
                             </div>
                             <div class="row">
                                 <div class="col-3">Email</div>
-                                <div class="col">descripcion op del servicio</div>
+                                <div class="col">{{soa.email}}</div>
                             </div>
                             <div class="row">
                                 <div class="col-3">Teléfono</div>
-                                <div class="col">descripcion op del servicio</div>
+                                <div class="col">{{soa.phone}}</div>
                             </div>
                           </div>
                         </li>

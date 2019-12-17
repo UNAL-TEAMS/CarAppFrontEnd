@@ -35,7 +35,7 @@ export class ProvidersComponent implements OnInit {
 
     this.providersTecno = [];
     this.providerService.getProvidersByService(NOTIFICATION_TYPE.TecnoMecanica, (response) => {
-      this.providerService = JSON.parse(response);
+      this.providersTecno = JSON.parse(response);
     }, err => {});
   }
 
