@@ -55,34 +55,34 @@
                         <div class="row mt-2">
                             <div class="col">
                                 <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="useLastTecDate" name="useLastTecDate">
+                                    <input type="checkbox" class="custom-control-input" id="useLastTecDate" name="useLastTecDate" [(ngModel)]="provider.services.RevTec.has" (ngModelChange)="editService(serviceTypes.TecnoMecanica)">
                                     <label class="custom-control-label" for="useLastTecDate">Revision Tecnomecanica</label>
                                 </div>
                             </div>
                             <div class="col">
-                                <p class="card-text">Info del servicio</p>
+                                <p class="card-text">{{provider.services.RevTec.description}}</p>
                             </div>
                         </div>
                         <div class="row mt-2">
                             <div class="col">
                                 <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="Mant5k" name="Mant5k">
+                                    <input type="checkbox" class="custom-control-input" id="Mant5k" name="Mant5k" [(ngModel)]="provider.services.Rev5k.has" (ngModelChange)="editService(serviceTypes.Kilometer)">
                                     <label class="custom-control-label" for="Mant5k">Mantenimiento 5k</label>
                                 </div>
                             </div>
                             <div class="col">
-                                <p class="card-text">Info del servicio</p>
+                                <p class="card-text">{{provider.services.Rev5k.description}}</p>
                             </div>
                         </div>
                         <div class="row mt-2">
                             <div class="col">
                                 <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="SOAT" name="SOAT">
+                                    <input type="checkbox" class="custom-control-input" id="SOAT" name="SOAT" [(ngModel)]="provider.services.Soat.has" (ngModelChange)="editService(serviceTypes.SOAT)">
                                     <label class="custom-control-label" for="SOAT">SOAT</label>
                                 </div>
                             </div>
                             <div class="col">
-                                <p class="card-text">Info del servicio</p>
+                                <p class="card-text">{{provider.services.Soat.description}}</p>
                             </div>
                         </div>
                     </div>

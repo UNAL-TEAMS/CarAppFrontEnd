@@ -1,7 +1,8 @@
+import { NOTIFICATION_TYPE } from './../notify/notify.component';
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { ProviderService } from '../../services/provider.service';
 import { Router } from '@angular/router';
-import { Provider } from '../../interfaces/provider.interfaces';
+import { Provider, Service } from '../../interfaces/provider.interfaces';
 import { environment } from '../../../environments/environment';
 import { NgbModal, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
@@ -17,7 +18,7 @@ export class ServiceModalComponent {
   constructor(public activeModal: NgbActiveModal) {}
 
   onClick() {
-    this.okEvent.emit({descripion: this.description, serviceType: this.serviceType});
+    this.okEvent.emit({description: this.description, serviceType: this.serviceType});
     this.activeModal.close();
   }
 }
@@ -40,6 +41,8 @@ export class ProfileProviderComponent implements OnInit {
       Rev5k: {has: false, description: ''},
     }
   };
+
+  serviceTypes = NOTIFICATION_TYPE;
 
   constructor(private providerService: ProviderService,
               private router: Router,
@@ -71,6 +74,31 @@ export class ProfileProviderComponent implements OnInit {
 
   editService(serviceType: string){
     const modal = this.modalService.open(ServiceModalComponent, { centered: true });
+    let service: Service;
+    switch (serviceType) {
+      case this.serviceTypes.SOAT: service = this.provider.services.Soat; break;
+      case this.serviceTypes.TecnoMecanica: service = this.provider.services.RevTec; break;
+      case this.serviceTypes.Kilometer: service = this.provider.services.Rev5k; break;
+      default: return;
+    }
+
+    const okFunc = (response) => {
+      this.loadProvider();
+    }, errFunc = (error) => {};
+
+    console.log(service);
+
+    if (service.has) {
+      const modal = this.modalService.open(ServiceModalComponent, { centered: true });
+      modal.componentInstance.description = service.description;
+      modal.componentInstance.serviceType = serviceType;
+      modal.componentInstance.okEvent.subscribe((res) => {
+        service.description = res.description;
+        this.providerService.modify({services: this.provider.services}, okFunc, errFunc);
+      });
+    }
+
+    this.providerService.modify({services: this.provider.services}, okFunc, errFunc);
   }
 
 }
