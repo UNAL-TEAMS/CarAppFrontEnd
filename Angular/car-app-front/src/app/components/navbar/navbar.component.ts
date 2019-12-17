@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 export class NavbarComponent {
 
   constructor(private userService: UserService,
-             private router: Router ) {
+              private router: Router ) {
 }
   logOut() {
     this.userService.logOut();
