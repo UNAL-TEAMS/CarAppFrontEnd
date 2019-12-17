@@ -13,7 +13,7 @@
                             <input type="password" class="form-control" id="password" [(ngModel)]="password" name="password" required>
                         </div>
                         <button type="submit" class="btn btn-success " [disabled]="!logInForm.form.valid || sending">Iniciar Sesión</button>
-                        <button type="button" class="btn btn-light " routerLink="/register">Registrarse</button>
+                        <button type="button" class="btn btn-light " routerLink="/registerProvider">Registrarse</button>
                         <div class="alert alert-danger mt-2" role="alert" *ngIf="errorLogin">
                             {{message}}
                     </div>

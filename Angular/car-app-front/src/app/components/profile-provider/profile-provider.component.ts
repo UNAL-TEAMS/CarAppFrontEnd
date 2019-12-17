@@ -12,6 +12,8 @@ export class ProfileProviderComponent implements OnInit {
   ngOnInit() {
   }
 
+  //user: User = {name: '', identification: 0, email: ''};
+
   handleFileInput(files: FileList) {
     const fileToUpload = files.item(0);
     /*this.userService.uploadImg(fileToUpload, (response) => {

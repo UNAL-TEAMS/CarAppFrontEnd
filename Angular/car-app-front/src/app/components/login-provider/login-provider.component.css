@@ -1,0 +1,333 @@
+.App {
+
+    text-align: center ;
+
+  }
+
+  
+
+  .App-logo {
+
+    height: 8vh;
+
+  }
+
+  
+
+  .button_ing {
+
+    background-color: rgb(18, 9, 39); 
+
+    margin-bottom: 0.25em;
+
+  
+
+    color: rgb(241, 224, 224);
+
+    padding: 15px 32px;
+
+    text-align: center;
+
+    text-decoration: none;
+
+    display: inline-block;
+
+    font-size: 16px;
+
+  }
+
+  
+
+  .loguser {
+
+    background-color: rgb(58, 3, 3); 
+
+    border: 2px solid #fff;
+
+    color: rgb(250, 236, 236);
+
+    padding: 15px 32px;
+
+    text-align: center;
+
+    text-decoration: none;
+
+    display: inline-block;
+
+    font-size: 180px;
+
+  }
+
+  
+
+ 
+
+ .logser {
+
+     width: 340px;
+
+    height: 50vh;
+
+    display: flex;
+
+    flex-direction: column;
+
+    padding: 20px 40px;
+
+    border-radius: 10px;
+
+    box-shadow: 0px 20px 20px rgb(112, 169, 184);
+
+    opacity: 0.91;
+
+    background-color: #080114;
+
+    justify-content: center
+
+  }
+  
+
+.cardds {
+  /* Add shadows to create the "card" effect */
+  box-shadow: 0 4px 8px 0 rgba(200,0,0,0.2);
+  transition: 0.3s;
+  background: white;
+}
+
+/* On mouse-over, add a deeper shadow */
+.cardds:hover {
+  box-shadow: 0 8px 16px 0 rgba(200,0,0,0.2);
+}
+
+/* Add some padding inside the card container */
+.containser {
+  padding: 2px 16px;
+}
+
+
+
+  
+
+  
+
+  form {
+
+  
+
+    width: 100%;
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    justify-content: center;
+
+    align-items: center;
+
+  }
+
+  
+
+  
+
+  
+
+  h1 {
+
+  
+
+    text-align: center;
+
+    width: 100%;
+
+    color: rgb(255, 255, 255);
+
+    font-weight: bold;
+
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+
+      Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+
+   
+
+  }
+
+  
+
+  
+
+  
+
+  label {
+
+    font-size: 0.8em;
+
+    margin-bottom: 0.25em;
+
+    color: rgb(201, 172, 172);
+
+    font-weight: lighter;
+
+  }
+
+  
+
+  
+
+  
+
+  input {
+
+  
+
+    padding: 10px 10px;
+
+    border-radius: 5px;
+
+    outline: none;
+
+    border: 1px solid #cfcfcf;
+
+  
+
+  }
+
+  
+
+  
+
+  
+
+  input:placeholder {
+
+    font-size: 1.2em;
+
+    font-weight: lighter;
+
+    color: #999;
+
+  
+
+  }
+
+  
+
+  
+
+  .mensaje_error {
+
+    color: rgb(185, 99, 99);
+
+    font-size: 0.75em;
+
+    display: relative;
+
+  }
+
+  
+
+  
+
+  .email,
+
+  .password,.nombre,.ident {
+
+    display: flex;
+
+    flex-direction: column;
+
+    margin-bottom: 15px;
+
+  }
+
+  
+
+  .email,
+
+  .password,.nombre, .ident {
+
+    width: 100%;
+
+  }
+
+  
+
+  .ingresar {
+
+    width: 100%;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+  }
+
+  
+
+  
+
+  
+
+  .ingresar button {
+
+  
+
+    background-color: #042c21;
+
+    color: #fff;
+
+    border: 2px solid #fff;
+
+    width: 100%;
+
+    margin-top: 1em;
+
+    padding: 8px 0px;
+
+    font-size: 1em;
+
+    font-weight: lighter;
+
+    letter-spacing: 1px;
+
+    margin-bottom: 0.25em;
+
+  
+
+  }
+
+  
+
+  
+
+  
+
+  .ingresar button:hover {
+
+    color: #519e8a;
+
+    background-color: #fff;
+
+    border: 2px solid #519e8a;
+
+  
+
+  }
+
+  
+
+  
+
+  
+
+  .ingresar small {
+
+    color: #999;
+
+    font-weight: lighter;
+
+  }
+
+  

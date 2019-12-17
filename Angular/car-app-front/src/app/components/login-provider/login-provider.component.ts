@@ -34,4 +34,5 @@ export class LoginProviderComponent implements OnInit {
        this.errorLogin = true;
     });
   }*/
+  }
 }
