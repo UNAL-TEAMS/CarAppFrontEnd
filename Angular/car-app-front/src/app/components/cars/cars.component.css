@@ -7,3 +7,84 @@ img{
 .image-upload>input {
     display: none;
   }
+
+  .user {
+    display: inline-block;
+    width: 240px;
+    height: 240px;
+    border-radius: 50%;
+  
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+
+     box-shadow: 0px 0px 40px rgb(0, 169, 184);
+
+  }
+
+
+  .logser {
+
+
+    width: auto;
+
+    height: auto;
+
+    display: flex;
+
+    flex-direction: column;
+
+    padding: 10px 20px;
+
+    border-radius: 10px;
+
+    box-shadow: 0px 0px 80px rgb(64, 0, 0);
+
+    opacity: 0.96;
+
+    justify-content: center;
+
+    background-color: rgb(0, 0, 0);
+
+    
+
+  }
+
+   .dat {
+
+
+    width: 350px;
+
+    height: 5vh;
+
+    display: flex;
+
+    flex-direction: column;
+
+    padding: 20px 40px;
+
+    border-radius: 10px;
+
+    opacity: 0.67;
+
+    justify-content: center;
+
+    background-color: rgb(64, 0, 0);
+   
+    margin-top: 8px;
+    margin-bottom: 8px
+
+  }
+
+h1{
+    text-align:center;
+    color: white;
+    font-size: 39px;
+    font-weight: bold;
+}
+
+h2{
+    color:gray;
+    font-size: 20px;
+    
+}

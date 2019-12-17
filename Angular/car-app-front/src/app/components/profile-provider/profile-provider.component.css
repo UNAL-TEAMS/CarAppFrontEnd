@@ -9,3 +9,120 @@
     background-position: center center;
     background-size: cover;
   }
+
+  .App {
+
+    text-align: center ;
+
+  }
+
+  
+
+  .App-logo {
+
+    height: 8vh;
+
+  }
+
+  
+
+  .button_ing {
+
+    background-color: rgb(18, 9, 39); 
+
+    margin-bottom: 0.25em;
+
+  
+
+    color: rgb(241, 224, 224);
+
+    padding: 15px 32px;
+
+    text-align: center;
+
+    text-decoration: none;
+
+    display: inline-block;
+
+    font-size: 16px;
+
+  }
+
+  
+
+  .loguser {
+
+    background-color: rgb(58, 3, 3); 
+
+    border: 2px solid #fff;
+
+    color: rgb(250, 236, 236);
+
+    padding: 15px 32px;
+
+    text-align: center;
+
+    text-decoration: none;
+
+    display: inline-block;
+    
+
+    font-size: 180px;
+
+  }
+
+  
+
+ 
+
+ .logser {
+
+     width: auto;
+  
+
+    height: auto;
+
+    display: flex;
+
+    flex-direction: column;
+
+    padding: 20px 40px;
+
+    border-radius: 10px;
+
+    box-shadow: 0px 0px 20px rgb(112, 169, 184);
+
+    opacity: 0.91;
+
+    background-color: #080114;
+
+    justify-content: center;
+    
+
+  }
+  
+
+.cardds {
+  /* Add shadows to create the "card" effect */
+  box-shadow: 0 4px 8px 0 rgba(200,0,0,0.2);
+  transition: 0.3s;
+  background: white;
+}
+
+/* On mouse-over, add a deeper shadow */
+.cardds:hover {
+  box-shadow: 0 8px 16px 0 rgba(200,0,0,0.2);
+}
+
+/* Add some padding inside the card container */
+.containser {
+  padding: 2px 16px;
+}
+
+h2{
+  font-size: 16px;
+  color: white;
+  display:block
+
+}
+
