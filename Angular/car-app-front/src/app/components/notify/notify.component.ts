@@ -4,6 +4,9 @@ import { Router } from '@angular/router';
 import { User, Car } from '../../interfaces/user.interface';
 import * as moment from 'moment';
 import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { Provider } from '../../interfaces/provider.interfaces';
+import { environment } from '../../../environments/environment';
+import { ProviderService } from '../../services/provider.service';
 
 export const NOTIFICATION_TYPE = {
   Kilometer: '5K',
@@ -15,6 +18,30 @@ interface Notification {
   car: Car;
   type: string;
   info: string;
+}
+
+@Component({
+  selector: 'app-modal-notifications',
+  templateUrl: './provider.modal.html'
+})
+export class ProviderModalComponent {
+  @Input() providers: Provider[] = [];
+  @Input() type = '';
+
+  constructor(public activeModal: NgbActiveModal) {}
+
+  getImgSrc(provider: Provider) {
+    return environment.server_url + '/provider/provider_photo/' + provider.avatar;
+  }
+
+  getDescription(provider: Provider) {
+    switch (this.type) {
+      case NOTIFICATION_TYPE.Kilometer: return provider.services.Rev5k.description;
+      case NOTIFICATION_TYPE.SOAT: return provider.services.Soat.description;
+      case NOTIFICATION_TYPE.TecnoMecanica: return provider.services.RevTec.description;
+    }
+    return '';
+  }
 }
 
 @Component({
@@ -50,6 +77,7 @@ export class NotifyComponent implements OnInit {
   updating = false;
 
   constructor(private userService: UserService,
+              private providerService: ProviderService,
               private router: Router,
               private modalService: NgbModal) {
     if (!userService.isLogged()) this.router.navigate(['/logIn']);
@@ -125,6 +153,13 @@ export class NotifyComponent implements OnInit {
         this.updating = false;
       });
     });
+  }
 
+  showProviders(notification: Notification) {
+    this.providerService.getProvidersByService(notification.type, (response) => {
+      const modal = this.modalService.open(ProviderModalComponent);
+      modal.componentInstance.type = notification.type;
+      modal.componentInstance.providers = JSON.parse(response);
+    }, err => {});
   }
 }
