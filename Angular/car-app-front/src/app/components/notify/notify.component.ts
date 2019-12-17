@@ -22,7 +22,9 @@ interface Notification {
 
 @Component({
   selector: 'app-modal-provider',
-  templateUrl: './provider.modal.html'
+  templateUrl: './provider.modal.html',
+  styleUrls: ['./notify.component.css']
+
 })
 export class ProviderModalComponent {
   @Input() providers: Provider[] = [];
@@ -46,7 +48,9 @@ export class ProviderModalComponent {
 
 @Component({
   selector: 'app-modal-notifications',
-  templateUrl: './notify.modal.html'
+  templateUrl: './notify.modal.html',
+  styleUrls: ['./notify.component.css']
+  
 })
 export class NotifyModalComponent {
   @Input() useDate;

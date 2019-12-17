@@ -14,8 +14,10 @@ import { NgbModal, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 export class ServiceModalComponent {
   @Input() description = '';
   @Input() serviceType;
+  @Input() tittle;
   @Output() okEvent = new EventEmitter<any>();
-  constructor(public activeModal: NgbActiveModal) {}
+  constructor(public activeModal: NgbActiveModal) {
+  }
 
   onClick() {
     console.log('Here');
@@ -75,10 +77,11 @@ export class ProfileProviderComponent implements OnInit {
 
   editService(serviceType: string){
     let service: Service;
+    let tittle = '';
     switch (serviceType) {
-      case this.serviceTypes.SOAT: service = this.provider.services.Soat; break;
-      case this.serviceTypes.TecnoMecanica: service = this.provider.services.RevTec; break;
-      case this.serviceTypes.Kilometer: service = this.provider.services.Rev5k; break;
+      case this.serviceTypes.SOAT: service = this.provider.services.Soat; tittle = 'SOAT';  break;
+      case this.serviceTypes.TecnoMecanica: service = this.provider.services.RevTec;  tittle = 'Revisión Tecnomecanica'; break;
+      case this.serviceTypes.Kilometer: service = this.provider.services.Rev5k;  tittle = 'Mantenimiento 5k'; break;
       default: return;
     }
 
@@ -92,6 +95,7 @@ export class ProfileProviderComponent implements OnInit {
       const modal = this.modalService.open(ServiceModalComponent, { centered: true });
       modal.componentInstance.description = service.description;
       modal.componentInstance.serviceType = serviceType;
+      modal.componentInstance.tittle = tittle;
       modal.componentInstance.okEvent.subscribe((res) => {
         switch (serviceType) {
           case this.serviceTypes.SOAT: service = this.provider.services.Soat.description = res.description; break;
