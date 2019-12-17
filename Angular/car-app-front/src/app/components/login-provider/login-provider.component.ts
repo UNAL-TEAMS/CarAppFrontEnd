@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-//import { ProviderService } from '../../services/user.service';
 import { Router } from '@angular/router';
-import "./login-provider.component.css";
+import { ProviderService } from '../../services/provider.service';
 
 @Component({
   selector: 'app-login-provider',
@@ -16,23 +15,22 @@ export class LoginProviderComponent implements OnInit {
   message = '';
   errorLogin = false;
 
-  constructor(//private userService: UserService,
+  constructor(private providerService: ProviderService,
               private router: Router ) {
-    //if (userService.isLogged()) router.navigate(['/home']);
+    if (providerService.isLogged()) router.navigate(['/profileProvider']);
   }
 
   ngOnInit() {}
 
   onSubmit() {
     this.sending = true;
-    /*this.userService.logIn(this.email, this.password, (response) => {
+    this.providerService.logIn(this.email, this.password, (response) => {
       this.sending = false;
-      this.router.navigate(['/home']);
+      this.router.navigate(['/profileProvider']);
     }, (err) => {
        this.sending = false;
        this.message = err.error;
        this.errorLogin = true;
     });
-  }*/
   }
 }
