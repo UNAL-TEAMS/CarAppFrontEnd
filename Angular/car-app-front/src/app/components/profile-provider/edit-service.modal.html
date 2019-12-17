@@ -1,0 +1,14 @@
+<div class="modal-content bg-dark">
+    <div class="modal-header text-white bg-dark">
+        <h4 class="modal-title">{{tittle}}</h4>
+        <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+          </button>
+    </div>
+    <div class="modal-body text-white bg-dark">
+        <input class="form-control" type="text" [(ngModel)]="description">
+    </div>
+    <div class="modal-footer text-white bg-dark">
+        <button type="button" class="btn btn-secondary" (click)="onClick()">Guardar</button>
+    </div>
+</div>

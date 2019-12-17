@@ -16,8 +16,7 @@ export class RegisterComponent implements OnInit {
     ID: 0,
     password: '',
   };
-  errorRegister=false;
-
+  errorRegister = false;
   sending = false;
   message = '';
 
