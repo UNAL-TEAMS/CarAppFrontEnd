@@ -11,7 +11,7 @@ import { HomeComponent } from './components/home/home.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { CarsComponent } from './components/cars/cars.component';
 import { ProvidersComponent } from './components/providers/providers.component';
-import { NotifyComponent, NotifyModalComponent } from './components/notify/notify.component';
+import { NotifyComponent, NotifyModalComponent, ProviderModalComponent } from './components/notify/notify.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CreateCarComponent } from './components/create-car/create-car.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
@@ -27,6 +27,7 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     ProvidersComponent,
     NotifyComponent,
     NotifyModalComponent,
+    ProviderModalComponent,
     CreateCarComponent,
   ],
   imports: [
@@ -38,7 +39,10 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     NgbModule,
   ],
   providers: [],
-  entryComponents: [NotifyModalComponent],
+  entryComponents: [
+    NotifyModalComponent,
+    ProviderModalComponent,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -42,5 +42,15 @@ export class ProviderService {
     this.request.sendRequest(this.URL + '/modify_provider', newData, REQUEST_TYPES.POST, true, okFunc, errFunc);
   }
 
+  uploadAvatar( file: File, okFunc: (response) => void, errFunc: (err) => void) {
+    this.request.sendFile(this.URL + '/upload_avatar', file, {}, REQUEST_TYPES.POST, true, okFunc, errFunc );
+  }
 
+  getProvidersByService(service: string, okFunc: (response) => void, errFunc: (err) => void) {
+    this.request.sendRequest(this.URL + '/get_specific_provider/' + service, {}, REQUEST_TYPES.GET, true, okFunc, errFunc);
+  }
+
+  logOut() {
+    this.request.clearTokens();
+  }
 }
