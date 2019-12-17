@@ -21,7 +21,7 @@ interface Notification {
 }
 
 @Component({
-  selector: 'app-modal-notifications',
+  selector: 'app-modal-provider',
   templateUrl: './provider.modal.html'
 })
 export class ProviderModalComponent {
@@ -157,7 +157,7 @@ export class NotifyComponent implements OnInit {
 
   showProviders(notification: Notification) {
     this.providerService.getProvidersByService(notification.type, (response) => {
-      const modal = this.modalService.open(ProviderModalComponent);
+      const modal = this.modalService.open(ProviderModalComponent, { centered: true });
       modal.componentInstance.type = notification.type;
       modal.componentInstance.providers = JSON.parse(response);
     }, err => {});

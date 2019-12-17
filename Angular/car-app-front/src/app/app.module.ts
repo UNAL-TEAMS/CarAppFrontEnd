@@ -17,7 +17,7 @@ import { CreateCarComponent } from './components/create-car/create-car.component
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { LoginProviderComponent } from './components/login-provider/login-provider.component';
 import { RegisterProviderComponent } from './components/register-provider/register-provider.component';
-import { ProfileProviderComponent } from './components/profile-provider/profile-provider.component';
+import { ProfileProviderComponent, ServiceModalComponent } from './components/profile-provider/profile-provider.component';
 import { NavBarProviderComponent } from './components/nav-bar-provider/nav-bar-provider.component';
 
 @NgModule({
@@ -37,6 +37,7 @@ import { NavBarProviderComponent } from './components/nav-bar-provider/nav-bar-p
     RegisterProviderComponent,
     ProfileProviderComponent,
     NavBarProviderComponent,
+    ServiceModalComponent,
   ],
   imports: [
     BrowserModule,
@@ -50,6 +51,7 @@ import { NavBarProviderComponent } from './components/nav-bar-provider/nav-bar-p
   entryComponents: [
     NotifyModalComponent,
     ProviderModalComponent,
+    ServiceModalComponent,
   ],
   bootstrap: [AppComponent]
 })
