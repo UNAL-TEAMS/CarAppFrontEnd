@@ -4,6 +4,7 @@ img{
     height: 100%;
     max-height:200px;
 }
+
 .image-upload>input {
     display: none;
   }
@@ -25,7 +26,7 @@ img{
 
   .logser {
 
-
+      margin-top: 30px;
     width: auto;
 
     height: auto;
