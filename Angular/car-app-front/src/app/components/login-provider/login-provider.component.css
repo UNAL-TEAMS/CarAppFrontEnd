@@ -64,9 +64,9 @@
 
  .logser {
 
-     width: 340px;
+     width: auto;
 
-    height: 55vh;
+    height: auto;
 
     display: flex;
 

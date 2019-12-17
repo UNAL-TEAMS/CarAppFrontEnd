@@ -53,6 +53,7 @@
     text-decoration: none;
 
     display: inline-block;
+    
 
     font-size: 180px;
 
@@ -64,9 +65,10 @@
 
  .logser {
 
-     width: 340px;
+     width: auto;
+  
 
-    height: 50vh;
+    height: auto;
 
     display: flex;
 
@@ -82,7 +84,8 @@
 
     background-color: #080114;
 
-    justify-content: center
+    justify-content: center;
+    
 
   }
   
