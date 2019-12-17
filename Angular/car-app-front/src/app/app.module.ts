@@ -15,6 +15,10 @@ import { NotifyComponent, NotifyModalComponent } from './components/notify/notif
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CreateCarComponent } from './components/create-car/create-car.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { LoginProviderComponent } from './components/login-provider/login-provider.component';
+import { RegisterProviderComponent } from './components/register-provider/register-provider.component';
+import { ProfileProviderComponent } from './components/profile-provider/profile-provider.component';
+import { NavBarProviderComponent } from './components/nav-bar-provider/nav-bar-provider.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +32,10 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     NotifyComponent,
     NotifyModalComponent,
     CreateCarComponent,
+    LoginProviderComponent,
+    RegisterProviderComponent,
+    ProfileProviderComponent,
+    NavBarProviderComponent,
   ],
   imports: [
     BrowserModule,

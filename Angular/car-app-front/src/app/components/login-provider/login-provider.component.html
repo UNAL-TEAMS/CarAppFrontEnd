@@ -1,0 +1,24 @@
+<div class="container h-100">
+    <div class="row align-items-center h-100">
+        <div class="mt-4 mx-auto">
+            <form #logInForm="ngForm" (ngSubmit)="onSubmit()">
+                <div class="logser">
+                        <h1>Bienvenido a Car App Proveedor</h1>
+                        <div class="form-group">
+                            <label for="email">Email: </label>
+                            <input type="text" class="form-control" id="email" [(ngModel)]="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Contraseña:</label>
+                            <input type="password" class="form-control" id="password" [(ngModel)]="password" name="password" required>
+                        </div>
+                        <button type="submit" class="btn btn-success " [disabled]="!logInForm.form.valid || sending">Iniciar Sesión</button>
+                        <button type="button" class="btn btn-light " routerLink="/register">Registrarse</button>
+                        <div class="alert alert-danger mt-2" role="alert" *ngIf="errorLogin">
+                            {{message}}
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
