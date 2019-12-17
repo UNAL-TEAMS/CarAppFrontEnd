@@ -20,6 +20,7 @@ export class ServiceModalComponent {
   }
 
   onClick() {
+    console.log('Here');
     this.okEvent.emit({description: this.description, serviceType: this.serviceType});
     this.activeModal.close();
   }
@@ -75,7 +76,6 @@ export class ProfileProviderComponent implements OnInit {
   }
 
   editService(serviceType: string){
-    const modal = this.modalService.open(ServiceModalComponent, { centered: true });
     let service: Service;
     let tittle = '';
     switch (serviceType) {
@@ -97,7 +97,12 @@ export class ProfileProviderComponent implements OnInit {
       modal.componentInstance.serviceType = serviceType;
       modal.componentInstance.tittle = tittle;
       modal.componentInstance.okEvent.subscribe((res) => {
-        service.description = res.description;
+        switch (serviceType) {
+          case this.serviceTypes.SOAT: service = this.provider.services.Soat.description = res.description; break;
+          case this.serviceTypes.TecnoMecanica: service = this.provider.services.RevTec.description = res.description; break;
+          case this.serviceTypes.Kilometer: service = this.provider.services.Rev5k.description = res.description; break;
+          default: return;
+        }
         this.providerService.modify({services: this.provider.services}, okFunc, errFunc);
       });
     }
