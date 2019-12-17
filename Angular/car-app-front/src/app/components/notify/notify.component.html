@@ -1,11 +1,11 @@
 <app-navbar></app-navbar>
 <div class="container mt-4">
     <div class="accordion" id="accordionExample">
-        <div class="card text-white bg-dark">
+        <div class="adv text-white ">
             <div class="card-header" id="headingOne">
-                <h2 class="mb-0">
-                    <button class="btn btn-link text-white" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                      Advertencia: ({{warningNotifications.length}})
+                <h2 align="center">
+                    <button class="btn btn-link " type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                     <h1 align="center"> Advertencia: ({{warningNotifications.length}}) </h1>
                     </button>
                 </h2>
             </div>
@@ -15,14 +15,14 @@
                         <li *ngFor="let not of warningNotifications" class="list-group-item list-group-item-dark border-warning">
                             <div class="row">
                                 <div class="col my-auto">
-                                    Placa: {{not.car.license_plate}}
+                                    <h3>Placa: {{not.car.license_plate}}</h3>
                                 </div>
                                 <div class="col my-auto">
-                                    Info: {{not.info}}
+                                    <h3>Info: {{not.info}}</h3>
                                 </div>
                                 <div class="col">
                                     <button type="button" class="btn btn-secondary" [disabled]="updating" (click)="updateValue(not)">Actualizar...</button>
-                                    <button type="button" class="btn btn-secondary ml-4" (click)="showProviders(not)">Ver Proveedores</button>
+                                    <button type="button" class="btn btn-secondary ml-2" (click)="showProviders(not)">Ver Proveedores</button>
                                 </div>
                             </div>
                         </li>
@@ -30,11 +30,11 @@
                 </div>
             </div>
         </div>
-        <div class="card text-white bg-dark">
+        <div class="urg text-white ">
             <div class="card-header" id="headingTwo">
-                <h2 class="mb-0">
+                <h2 align="center">
                     <button class="btn btn-link collapsed text-white" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                      Urgencia: ({{severeNotifications.length}})
+                      <h1 align="center">Urgencia: ({{severeNotifications.length}}) </h1>
                     </button>
                 </h2>
             </div>
@@ -44,10 +44,10 @@
                         <li *ngFor="let not of severeNotifications" class="list-group-item list-group-item-dark border-danger">
                             <div class="row">
                                 <div class="col my-auto">
-                                    Placa: {{not.car.license_plate}}
+                                    <h3>Placa: {{not.car.license_plate}}</h3>
                                 </div>
                                 <div class="col my-auto">
-                                    Info: {{not.info}}
+                                    <h3>Info: {{not.info}}</h3>
                                 </div>
                                 <div class="col">
                                     <button type="button" class="btn btn-secondary" [disabled]="updating" (click)="updateValue(not)">Actualizar...</button>
@@ -61,3 +61,23 @@
         </div>
     </div>
 </div>
+
+<footer class="footer">
+      
+    <div class="logser" style="width auto; height auto;">
+  
+        <div class="card-body text-dark">
+    
+             <h2 align="center">Mail de contacto: <a href="mailto:carapp-soporte@gmail.com">
+               carapp-soporte@gmail.com</a>.</h2>
+
+            <h2 align="center">Llámenos:
+               3183815364
+           </h2>
+           <h2 align="center">
+            <img src= "assets/log-carapp.png" height="60" width="160" >
+            </h2>
+              
+        </div>
+    </div>
+ </footer>
