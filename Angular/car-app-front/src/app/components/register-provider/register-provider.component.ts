@@ -1,14 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from '../../services/user.service';
-import { Router } from '@angular/router';
-import "./register.component.css";
 
 @Component({
-  selector: 'app-register',
-  templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css']
+  selector: 'app-register-provider',
+  templateUrl: './register-provider.component.html',
+  styleUrls: ['./register-provider.component.css']
 })
-export class RegisterComponent implements OnInit {
+export class RegisterProviderComponent implements OnInit {
 
   registerInfo = {
     name: '',
@@ -16,19 +13,15 @@ export class RegisterComponent implements OnInit {
     ID: 0,
     password: '',
   };
-  errorRegister = false;
+  errorRegister=false;
+
   sending = false;
   message = '';
-
-  constructor(private userService: UserService,
-              private router: Router) {
-    if (userService.isLogged()) router.navigate(['/home']);
-  }
+  constructor() { }
 
   ngOnInit() {
   }
-
-  onSubmit() {
+  onSubmit() {/*
     this.sending = true;
     this.userService.register(this.registerInfo.name, this.registerInfo.ID,
       this.registerInfo.email, this.registerInfo.password, (response) => {
@@ -40,7 +33,7 @@ export class RegisterComponent implements OnInit {
       this.message = err.error;
       this.errorRegister = true;
       this.sending = false;
-    });
+    });*/
   }
 
 }

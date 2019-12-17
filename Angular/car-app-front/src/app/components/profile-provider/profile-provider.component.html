@@ -1,0 +1,53 @@
+<app-navbar></app-navbar>
+
+<div class="container h-100">
+    <div class="row align-items-center h-100">
+        <div class="mt-4 mx-auto">
+            <div class="card text-white bg-dark mb-3" style="width: 28rem;">
+                <div class="card-header">
+                    Perfil
+                   <button type="submit" class="btn btn-secondary float-right" >Modificar</button>
+                </div>
+                <label class="mx-auto" for="photo-input">
+                        <img [src]="getAvatarUrl()" class="mx-auto user mt-2" alt="FotoIcon"/>
+                    </label>
+                    <input style="display:none;" id="photo-input" (change)="handleFileInput($event.target.files)" type="file" />
+                    
+                <div class="card-body">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col">
+                                <p class="card-text">Nombre</p>
+                            </div>
+                            <div class="col">
+                                <p class="card-text"></p>
+                            </div>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col">
+
+                                <p class="card-text">NIT</p>
+                            </div>
+                            <div class="col">
+
+                                <p class="card-text"></p>
+                            </div>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col">
+                                <p class="card-text">Correo</p>
+                            </div>
+                            <div class="col">
+
+                                <p class="card-text"></p>
+                            </div>
+                        </div>
+
+                </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
